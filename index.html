@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A1-16 Prepositions — Way2English Premium</title>
+    <title>A1-16 Prepositions — Way2English LMS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,545 +12,438 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            background-color: #f8fafc;
         }
-        .stepper-scroll::-webkit-scrollbar {
-            height: 6px;
+        /* Приховування стандартного скролбару для степпера */
+        .stepper-container::-webkit-scrollbar {
+            height: 4px;
         }
-        .stepper-scroll::-webkit-scrollbar-track {
+        .stepper-container::-webkit-scrollbar-track {
             background: #f1f5f9;
-            border-radius: 10px;
         }
-        .stepper-scroll::-webkit-scrollbar-thumb {
-            background: #e2e8f0;
-            border-radius: 10px;
-        }
-        .stepper-scroll::-webkit-scrollbar-thumb:hover {
+        .stepper-container::-webkit-scrollbar-thumb {
             background: #cbd5e1;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
+            border-radius: 10px;
         }
     </style>
 </head>
-<body class="text-slate-800 flex flex-col min-h-screen pb-28">
+<body class="text-slate-900 min-h-screen flex flex-col pb-28">
 
-    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-40 shadow-sm">
-        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-3.5">
-                <div class="bg-gradient-to-tr from-indigo-600 to-violet-500 text-white p-3 rounded-2xl shadow-lg shadow-indigo-200">
-                    <i class="fa-solid fa-earth-americas text-xl"></i>
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-sm">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-extrabold tracking-tight text-slate-950">A1-16 Prepositions</h1>
-                    <p class="text-xs text-slate-500 font-semibold tracking-wide uppercase mt-0.5">Interactive Premium Lesson</p>
+                    <h1 class="text-lg font-extrabold tracking-tight text-slate-900">A1-16 Prepositions</h1>
+                    <p class="text-xs text-slate-500 font-medium">Інтерактивний урок • Рівень А1</p>
                 </div>
             </div>
-            <div class="flex items-center gap-2">
-                <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Платформа:</span>
-                <span class="text-sm font-bold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-xl border border-indigo-100/80 shadow-inner">Way2English</span>
+            <div class="flex items-center gap-2 text-sm font-bold text-slate-600 bg-slate-100 px-4 py-1.5 rounded-xl border border-slate-200/60">
+                Платформа: <span class="text-indigo-600 ml-1">Way2English</span>
             </div>
         </div>
 
-        <div class="bg-slate-50/50 border-t border-slate-200/60">
+        <div class="bg-slate-50 border-t border-slate-200">
             <div class="max-w-5xl mx-auto px-4">
-                <nav class="stepper-scroll flex items-center gap-2.5 overflow-x-auto py-3.5 whitespace-nowrap">
-                    <button onclick="goToStep(0)" id="btn-step-0" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 bg-white shadow-md shadow-slate-100 border border-indigo-100 text-indigo-600 scale-105">
-                        <span class="text-base">🎬</span> Відео
+                <div class="stepper-container flex items-center gap-2 overflow-x-auto py-3 whitespace-nowrap">
+                    <button onclick="goToStep(0)" id="btn-step-0" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 bg-white shadow-sm border border-slate-200 text-indigo-600">
+                        <span>🎬</span> Відео
                     </button>
-                    <button onclick="goToStep(1)" id="btn-step-1" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 text-slate-600 hover:bg-white hover:shadow-sm">
-                        <span class="text-base">📚</span> Словник
+                    <button onclick="goToStep(1)" id="btn-step-1" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 text-slate-500 hover:bg-slate-200/60">
+                        <span>📚</span> Словник
                     </button>
-                    <button onclick="goToStep(2)" id="btn-step-2" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 text-slate-600 hover:bg-white hover:shadow-sm">
-                        <span class="text-base">🎧</span> Розмова 1
+                    <button onclick="goToStep(2)" id="btn-step-2" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 text-slate-500 hover:bg-slate-200/60">
+                        <span>🎧</span> Розмова 1
                     </button>
-                    <button onclick="goToStep(3)" id="btn-step-3" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 text-slate-600 hover:bg-white hover:shadow-sm">
-                        <span class="text-base">🎧</span> Розмова 2
+                    <button onclick="goToStep(3)" id="btn-step-3" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 text-slate-500 hover:bg-slate-200/60">
+                        <span>🎧</span> Розмова 2
                     </button>
-                    <button onclick="goToStep(4)" id="btn-step-4" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 text-slate-600 hover:bg-white hover:shadow-sm">
-                        <span class="text-base">🎧</span> Розмова 3
+                    <button onclick="goToStep(4)" id="btn-step-4" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 text-slate-500 hover:bg-slate-200/60">
+                        <span>🎧</span> Розмова 3
                     </button>
-                    <button onclick="goToStep(5)" id="btn-step-5" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 text-slate-600 hover:bg-white hover:shadow-sm">
-                        <span class="text-base">🎧</span> Розмова 4
+                    <button onclick="goToStep(5)" id="btn-step-5" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 text-slate-500 hover:bg-slate-200/60">
+                        <span>🎧</span> Розмова 4
                     </button>
-                    <button onclick="goToStep(6)" id="btn-step-6" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 text-slate-600 hover:bg-white hover:shadow-sm">
-                        <span class="text-base">📖</span> Читання
+                    <button onclick="goToStep(6)" id="btn-step-6" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 text-slate-500 hover:bg-slate-200/60">
+                        <span>📖</span> Читання
                     </button>
-                    <button onclick="goToStep(7)" id="btn-step-7" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 text-slate-600 hover:bg-white hover:shadow-sm">
-                        <span class="text-base">🧩</span> Пазл
+                    <button onclick="goToStep(7)" id="btn-step-7" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 text-slate-500 hover:bg-slate-200/60">
+                        <span>🧩</span> Пазл
                     </button>
-                    <button onclick="goToStep(8)" id="btn-step-8" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 text-slate-600 hover:bg-white hover:shadow-sm">
-                        <span class="text-base">📇</span> Картки
+                    <button onclick="goToStep(8)" id="btn-step-8" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 text-slate-500 hover:bg-slate-200/60">
+                        <span>📇</span> Картки
                     </button>
-                    <button onclick="goToStep(9)" id="btn-step-9" class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 text-slate-600 hover:bg-white hover:shadow-sm">
-                        <span class="text-base">🗣️</span> Говоримо
+                    <button onclick="goToStep(9)" id="btn-step-9" class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 text-slate-500 hover:bg-slate-200/60">
+                        <span>🗣️</span> Говоримо
                     </button>
-                </nav>
+                </div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-4 w-full mt-8 flex-grow">
+    <main class="max-w-4xl mx-auto px-6 w-full mt-8 flex-grow">
         
-        <section id="step-0" class="step-section bg-white rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-200/60">
-            <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center text-rose-500 text-lg"><i class="fa-solid fa-play"></i></div>
-                <h2 class="text-2xl font-extrabold text-slate-950">Дивись відео</h2>
-            </div>
-            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Почніть вивчення теми з перегляду короткого мультимедійного матеріалу. Це допоможе вам візуалізувати просторове розташування об'єктів у місті перед практикою.</p>
-            <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-md border border-slate-100 bg-slate-950 mb-6">
-                <iframe src="https://player.vimeo.com/video/950580850" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="bg-gradient-to-r from-indigo-50 to-violet-50 border border-indigo-100/70 rounded-2xl p-5 flex items-start gap-4">
-                <div class="p-2 bg-white rounded-xl shadow-sm text-indigo-500 mt-0.5"><i class="fa-solid fa-lightbulb"></i></div>
-                <div>
-                    <h4 class="font-bold text-indigo-950 text-sm mb-1">Що ми вивчимо сьогодні?</h4>
-                    <p class="text-xs text-indigo-900/80 leading-relaxed">У цьому уроці розглядаються 4 життєві ситуації орієнтування у місті: пошук готелю, опис району проживання, розташування фітнес-центру в молі та пошук мовної школи. Звертайте увагу на слова: <em>downtown, across from, between, next to</em>.</p>
-                </div>
+        <section id="step-0" class="step-section bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs">
+            <h2 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">🎬 Дивись відео</h2>
+            <p class="text-slate-500 text-xs mb-6">Перегляньте мультимедійне відео перед початком практики, щоб наочно побачити використання прийменників місця.</p>
+            <div class="aspect-video w-full rounded-xl overflow-hidden shadow-xs border border-slate-200 bg-black mb-4">
+                <iframe src="https://player.vimeo.com/video/950580850" class="w-full h-full" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
         </section>
 
-        <section id="step-1" class="step-section bg-white rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-200/60 hidden">
-            <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-500 text-lg"><i class="fa-solid fa-book-open"></i></div>
-                <h2 class="text-2xl font-extrabold text-slate-950">Словник уроку</h2>
-            </div>
-            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Ознайомтеся з офіційним словником уроку. Натискайте на кнопку динаміка <span class="text-indigo-600">🔊</span> для відтворення правильної вимови за допомогою голосового синтезатора.</p>
+        <section id="step-1" class="step-section bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hidden">
+            <h2 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">📚 Словник уроку</h2>
+            <p class="text-slate-500 text-xs mb-6">Ознайомтеся з базовими словами уроку. Натискайте на іконку динаміка 🔊 для аудіо-вимови реплік.</p>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="vocab-container">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="vocab-container">
                 </div>
         </section>
 
-        <section id="step-2" class="step-section bg-white rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-200/60 hidden">
-            <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center text-violet-500 text-lg"><i class="fa-solid fa-headset"></i></div>
-                <h2 class="text-2xl font-extrabold text-slate-950">Розмова 1</h2>
-            </div>
-            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Прослухайте аудіо першого треку. Згідно з методикою, текст діалогу приховано — спершу сфокусуйтеся на тренуванні сприйняття мови на слух, а потім виконайте тест.</p>
+        <section id="step-2" class="step-section bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hidden">
+            <h2 class="text-xl font-bold text-slate-900 mb-4">🎧 Розмова 1 — Hotel Location</h2>
             
-            <div class="flex flex-col md:flex-row items-center gap-6 p-5 bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl border border-slate-200/60 mb-8 shadow-inner">
-                <img src="A1-16-1-Prepositions.jpg" alt="Conversation 1" class="w-full md:w-48 h-32 object-cover rounded-xl shadow-md bg-slate-200 border-2 border-white">
+            <div class="flex flex-col sm:flex-row items-center gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200/80 mb-6">
+                <img src="A1-16-1-Prepositions.jpg" class="w-32 h-20 object-cover rounded-lg border border-slate-200 bg-white">
                 <div class="w-full">
-                    <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-[10px] font-bold uppercase tracking-wider rounded-md border border-indigo-100">Аудіо трек 1</span>
-                    <h3 class="text-lg font-extrabold text-slate-900 mt-2 mb-3">Hotel Location</h3>
-                    <audio controls src="A1-16-1-Prepositions.mp3" class="w-full focus:outline-none"></audio>
+                    <span class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded uppercase tracking-wider">Аудіозапис 1</span>
+                    <audio controls src="A1-16-1-Prepositions.mp3" class="w-full mt-2 focus:outline-none text-sm"></audio>
                 </div>
             </div>
 
-            <div class="space-y-6">
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 quiz-block" data-quiz="1" data-q="1" data-correct="B">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 1 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">Where is the hotel?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-1" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) Next to the gym</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-1" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) Downtown</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-1" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) On the beach</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-1" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) Far away</span></label>
+            <div class="space-y-4">
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="1" data-q="1" data-correct="B">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 1</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">Where is the hotel?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-1" value="A" onchange="checkQuizAnswer(this)"> <span>A) Next to the gym</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-1" value="B" onchange="checkQuizAnswer(this)"> <span>B) Downtown</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-1" value="C" onchange="checkQuizAnswer(this)"> <span>C) On the beach</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-1" value="D" onchange="checkQuizAnswer(this)"> <span>D) Far away</span></label>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 quiz-block" data-quiz="1" data-q="2" data-correct="C">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 2 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">What is across from the hotel?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-2" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) A mall</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-2" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) A beach</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-2" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) A museum</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-2" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) A university</span></label>
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="1" data-q="2" data-correct="C">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 2</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">What is across from the hotel?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-2" value="A" onchange="checkQuizAnswer(this)"> <span>A) A mall</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-2" value="B" onchange="checkQuizAnswer(this)"> <span>B) A beach</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-2" value="C" onchange="checkQuizAnswer(this)"> <span>C) A museum</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-2" value="D" onchange="checkQuizAnswer(this)"> <span>D) A university</span></label>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 quiz-block" data-quiz="1" data-q="3" data-correct="B">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 3 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">Where is the museum located?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-3" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) On the east side of town</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-3" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) In the park</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-3" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) In the mall</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q1-3" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) On A Street</span></label>
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="1" data-q="3" data-correct="B">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 3</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">Where is the museum located?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-3" value="A" onchange="checkQuizAnswer(this)"> <span>A) On the east side of town</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-3" value="B" onchange="checkQuizAnswer(this)"> <span>B) In the park</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-3" value="C" onchange="checkQuizAnswer(this)"> <span>C) In the mall</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q1-3" value="D" onchange="checkQuizAnswer(this)"> <span>D) On A Street</span></label>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="step-3" class="step-section bg-white rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-200/60 hidden">
-            <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center text-violet-500 text-lg"><i class="fa-solid fa-headset"></i></div>
-                <h2 class="text-2xl font-extrabold text-slate-950">Розмова 2</h2>
-            </div>
-            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Прослухайте аудіо другого треку про житловий район і виконайте наступні тестові завдання.</p>
+        <section id="step-3" class="step-section bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hidden">
+            <h2 class="text-xl font-bold text-slate-900 mb-4">🎧 Розмова 2 — Living Area</h2>
             
-            <div class="flex flex-col md:flex-row items-center gap-6 p-5 bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl border border-slate-200/60 mb-8 shadow-inner">
-                <img src="A1-16-2-Prepositions.jpg" alt="Conversation 2" class="w-full md:w-48 h-32 object-cover rounded-xl shadow-md bg-slate-200 border-2 border-white">
+            <div class="flex flex-col sm:flex-row items-center gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200/80 mb-6">
+                <img src="A1-16-2-Prepositions.jpg" class="w-32 h-20 object-cover rounded-lg border border-slate-200 bg-white">
                 <div class="w-full">
-                    <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-[10px] font-bold uppercase tracking-wider rounded-md border border-indigo-100">Аудіо трек 2</span>
-                    <h3 class="text-lg font-extrabold text-slate-900 mt-2 mb-3">Living Area</h3>
-                    <audio controls src="A1-16-2-Prepositions.mp3" class="w-full focus:outline-none"></audio>
+                    <span class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded uppercase tracking-wider">Аудіозапис 2</span>
+                    <audio controls src="A1-16-2-Prepositions.mp3" class="w-full mt-2 focus:outline-none text-sm"></audio>
                 </div>
             </div>
 
-            <div class="space-y-6">
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 midnight-quiz quiz-block" data-quiz="2" data-q="1" data-correct="C">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 1 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">Where does the woman live?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-1" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) Downtown</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-1" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) On the second floor</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-1" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) In the east side of town</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-1" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) Near the train station</span></label>
+            <div class="space-y-4">
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="2" data-q="1" data-correct="C">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 1</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">Where does the woman live?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-1" value="A" onchange="checkQuizAnswer(this)"> <span>A) Downtown</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-1" value="B" onchange="checkQuizAnswer(this)"> <span>B) On the second floor</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-1" value="C" onchange="checkQuizAnswer(this)"> <span>C) In the east side of town</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-1" value="D" onchange="checkQuizAnswer(this)"> <span>D) Near the train station</span></label>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 quiz-block" data-quiz="2" data-q="2" data-correct="B">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 2 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">Is her home far from the university?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-2" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) Yes, very far</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-2" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) No, it is not far away</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-2" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) It is between the bank and the gym</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-2" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) She doesn't know</span></label>
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="2" data-q="2" data-correct="B">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 2</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">Is her home far from the university?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-2" value="A" onchange="checkQuizAnswer(this)"> <span>A) Yes, very far</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-2" value="B" onchange="checkQuizAnswer(this)"> <span>B) No, it is not far away</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-2" value="C" onchange="checkQuizAnswer(this)"> <span>C) It is between the bank and the gym</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-2" value="D" onchange="checkQuizAnswer(this)"> <span>D) She doesn't know</span></label>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 quiz-block" data-quiz="2" data-q="3" data-correct="A">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 3 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">Does she live near the beach?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-3" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) Yes, she lives on the beach actually</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-3" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) No, she lives near the park</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-3" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) No, she lives on A Street</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q2-3" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) Yes, but it is 20 minutes away</span></label>
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="2" data-q="3" data-correct="A">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 3</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">Does she live near the beach?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-3" value="A" onchange="checkQuizAnswer(this)"> <span>A) Yes, she lives on the beach actually</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-3" value="B" onchange="checkQuizAnswer(this)"> <span>B) No, she lives near the park</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-3" value="C" onchange="checkQuizAnswer(this)"> <span>C) No, she lives on A Street</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q2-3" value="D" onchange="checkQuizAnswer(this)"> <span>D) Yes, but it is 20 minutes away</span></label>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="step-4" class="step-section bg-white rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-200/60 hidden">
-            <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center text-violet-500 text-lg"><i class="fa-solid fa-headset"></i></div>
-                <h2 class="text-2xl font-extrabold text-slate-950">Розмова 3</h2>
-            </div>
-            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Слухайте третій трек. Тренуємо навичку розуміння деталей: зверніть увагу на поверхи та суміжні заклади.</p>
+        <section id="step-4" class="step-section bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hidden">
+            <h2 class="text-xl font-bold text-slate-900 mb-4">🎧 Розмова 3 — Mall and Gym</h2>
             
-            <div class="flex flex-col md:flex-row items-center gap-6 p-5 bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl border border-slate-200/60 mb-8 shadow-inner">
-                <img src="A1-16-3-Prepositions.jpg" alt="Conversation 3" class="w-full md:w-48 h-32 object-cover rounded-xl shadow-md bg-slate-200 border-2 border-white">
+            <div class="flex flex-col sm:flex-row items-center gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200/80 mb-6">
+                <img src="A1-16-3-Prepositions.jpg" class="w-32 h-20 object-cover rounded-lg border border-slate-200 bg-white">
                 <div class="w-full">
-                    <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-[10px] font-bold uppercase tracking-wider rounded-md border border-indigo-100">Аудіо трек 3</span>
-                    <h3 class="text-lg font-extrabold text-slate-900 mt-2 mb-3">Mall and Gym</h3>
-                    <audio controls src="A1-16-3-Prepositions.mp3" class="w-full focus:outline-none"></audio>
+                    <span class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded uppercase tracking-wider">Аудіозапис 3</span>
+                    <audio controls src="A1-16-3-Prepositions.mp3" class="w-full mt-2 focus:outline-none text-sm"></audio>
                 </div>
             </div>
 
-            <div class="space-y-6">
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 quiz-block" data-quiz="3" data-q="1" data-correct="C">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 1 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">Where is the mall?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-1" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) In the park</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-1" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) On the beach</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-1" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) Next to the train station</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-1" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) Across from the cafe</span></label>
+            <div class="space-y-4">
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="3" data-q="1" data-correct="C">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 1</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">Where is the mall?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-1" value="A" onchange="checkQuizAnswer(this)"> <span>A) In the park</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-1" value="B" onchange="checkQuizAnswer(this)"> <span>B) On the beach</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-1" value="C" onchange="checkQuizAnswer(this)"> <span>C) Next to the train station</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-1" value="D" onchange="checkQuizAnswer(this)"> <span>D) Across from the cafe</span></label>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 quiz-block" data-quiz="3" data-q="2" data-correct="B">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 2 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">What is located across from the train station?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-2" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) The hotel</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-2" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) The cafe</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-2" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) The gym</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-2" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) The language school</span></label>
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="3" data-q="2" data-correct="B">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 2</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">What is located across from the train station?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-2" value="A" onchange="checkQuizAnswer(this)"> <span>A) The hotel</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-2" value="B" onchange="checkQuizAnswer(this)"> <span>B) The cafe</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-2" value="C" onchange="checkQuizAnswer(this)"> <span>C) The gym</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-2" value="D" onchange="checkQuizAnswer(this)"> <span>D) The language school</span></label>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 quiz-block" data-quiz="3" data-q="3" data-correct="B">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 3 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">Where is the nearest gym?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-3" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) On the first floor of the museum</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-3" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) In the mall on the second floor</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-3" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) Next to the beach</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q3-3" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) On A Street</span></label>
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="3" data-q="3" data-correct="B">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 3</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">Where is the nearest gym?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-3" value="A" onchange="checkQuizAnswer(this)"> <span>A) On the first floor of the museum</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-3" value="B" onchange="checkQuizAnswer(this)"> <span>B) In the mall on the second floor</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-3" value="C" onchange="checkQuizAnswer(this)"> <span>C) Next to the beach</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q3-3" value="D" onchange="checkQuizAnswer(this)"> <span>D) On A Street</span></label>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="step-5" class="step-section bg-white rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-200/60 hidden">
-            <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center text-violet-500 text-lg"><i class="fa-solid fa-headset"></i></div>
-                <h2 class="text-2xl font-extrabold text-slate-950">Розмова 4</h2>
-            </div>
-            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Фінальний аудіо трек. Послухайте розмову про мовну школу та завершіть першу тестову частину.</p>
+        <section id="step-5" class="step-section bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hidden">
+            <h2 class="text-xl font-bold text-slate-900 mb-4">🎧 Розмова 4 — Language School</h2>
             
-            <div class="flex flex-col md:flex-row items-center gap-6 p-5 bg-gradient-to-br from-slate-50 to-slate-100/50 rounded-2xl border border-slate-200/60 mb-8 shadow-inner">
-                <img src="A1-16-4-Prepositions.jpg" alt="Conversation 4" class="w-full md:w-48 h-32 object-cover rounded-xl shadow-md bg-slate-200 border-2 border-white">
+            <div class="flex flex-col sm:flex-row items-center gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200/80 mb-6">
+                <img src="A1-16-4-Prepositions.jpg" class="w-32 h-20 object-cover rounded-lg border border-slate-200 bg-white">
                 <div class="w-full">
-                    <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 text-[10px] font-bold uppercase tracking-wider rounded-md border border-indigo-100">Аудіо трек 4</span>
-                    <h3 class="text-lg font-extrabold text-slate-900 mt-2 mb-3">Language School</h3>
-                    <audio controls src="A1-16-4-Prepositions.mp3" class="w-full focus:outline-none"></audio>
+                    <span class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded uppercase tracking-wider">Аудіозапис 4</span>
+                    <audio controls src="A1-16-4-Prepositions.mp3" class="w-full mt-2 focus:outline-none text-sm"></audio>
                 </div>
             </div>
 
-            <div class="space-y-6">
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 quiz-block" data-quiz="4" data-q="1" data-correct="C">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 1 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">What does the woman's town have on A Street?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-1" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) A beach and a cafe</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-1" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) A train station</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-1" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) A language school</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-1" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) A big mall</span></label>
+            <div class="space-y-4">
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="4" data-q="1" data-correct="C">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 1</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">What does the woman's town have on A Street?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-1" value="A" onchange="checkQuizAnswer(this)"> <span>A) A beach and a cafe</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-1" value="B" onchange="checkQuizAnswer(this)"> <span>B) A train station</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-1" value="C" onchange="checkQuizAnswer(this)"> <span>C) A language school</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-1" value="D" onchange="checkQuizAnswer(this)"> <span>D) A big mall</span></label>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 quiz-block" data-quiz="4" data-q="2" data-correct="D">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 2 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">Where is the language school located?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-2" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) Across from the park</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-2" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) Next to the hotel</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-2" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) On the second floor of the mall</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-2" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) Between the bank and the post office</span></label>
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="4" data-q="2" data-correct="D">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 2</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">Where is the language school located?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-2" value="A" onchange="checkQuizAnswer(this)"> <span>A) Across from the park</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-2" value="B" onchange="checkQuizAnswer(this)"> <span>B) Next to the hotel</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-2" value="C" onchange="checkQuizAnswer(this)"> <span>C) On the second floor of the mall</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-2" value="D" onchange="checkQuizAnswer(this)"> <span>D) Between the bank and the post office</span></label>
                     </div>
                 </div>
 
-                <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 quiz-block" data-quiz="4" data-q="3" data-correct="B">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wide">Питання 3 з 3</span>
-                    <h4 class="font-extrabold text-slate-900 mt-1 mb-4 text-base">How far away is the language school?</h4>
-                    <div class="grid grid-cols-1 gap-2.5">
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-3" value="A" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">A) It is far away</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-3" value="B" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">B) It is only five minutes away</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-3" value="C" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">C) It is on the east side</span></label>
-                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm"><input type="radio" name="q4-3" value="D" onchange="checkQuizAnswer(this)" class="w-4 h-4 text-indigo-600"> <span class="text-sm font-medium">D) It is near the beach</span></label>
+                <div class="p-4 border border-slate-100 rounded-xl bg-slate-50/50 quiz-block" data-quiz="4" data-q="3" data-correct="B">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase">Запитання 3</span>
+                    <h4 class="font-bold text-slate-900 mb-3 text-sm mt-0.5">How far away is the language school?</h4>
+                    <div class="space-y-1.5 text-xs">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-3" value="A" onchange="checkQuizAnswer(this)"> <span>A) It is far away</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-3" value="B" onchange="checkQuizAnswer(this)"> <span>B) It is only five minutes away</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-3" value="C" onchange="checkQuizAnswer(this)"> <span>C) It is on the east side</span></label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer"><input type="radio" name="q4-3" value="D" onchange="checkQuizAnswer(this)"> <span>D) It is near the beach</span></label>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="step-6" class="step-section bg-white rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-200/60 hidden">
-            <div class="flex items-center gap-3 mb-4">
-                <div class="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center text-teal-500 text-lg"><i class="fa-solid fa-align-left"></i></div>
-                <h2 class="text-2xl font-extrabold text-slate-950">Читання текстових скриптів</h2>
-            </div>
-            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Тепер ви можете ознайомитися з текстовою версією всіх чотирьох розмов, оформленою у вигляді сучасного чату. Перемикайте вкладки для перегляду відповідного діалогу.</p>
+        <section id="step-6" class="step-section bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hidden">
+            <h2 class="text-xl font-bold text-slate-900 mb-2">📖 Читання текстових скриптів</h2>
+            <p class="text-slate-500 text-xs mb-6">Прочитайте оригінальні скрипти розмов. Оформлено у вигляді чату для зручності візуального аналізу.</p>
             
-            <div class="flex gap-2 border-b border-slate-200 mb-6 overflow-x-auto pb-2 scrollbar-none">
-                <button onclick="switchReadTab(1)" id="tab-read-1" class="px-4 py-2 text-sm font-bold border-b-2 border-indigo-600 text-indigo-600 whitespace-nowrap transition-all">Розмова 1</button>
-                <button onclick="switchReadTab(2)" id="tab-read-2" class="px-4 py-2 text-sm font-semibold text-slate-500 border-b-2 border-transparent hover:text-slate-800 whitespace-nowrap transition-all">Розмова 2</button>
-                <button onclick="switchReadTab(3)" id="tab-read-3" class="px-4 py-2 text-sm font-semibold text-slate-500 border-b-2 border-transparent hover:text-slate-800 whitespace-nowrap transition-all">Розмова 3</button>
-                <button onclick="switchReadTab(4)" id="tab-read-4" class="px-4 py-2 text-sm font-semibold text-slate-500 border-b-2 border-transparent hover:text-slate-800 whitespace-nowrap transition-all">Розмова 4</button>
+            <div class="flex gap-2 border-b border-slate-200 mb-4 overflow-x-auto pb-2 scrollbar-none">
+                <button onclick="switchReadTab(1)" id="tab-read-1" class="px-3 py-1.5 text-xs font-bold border-b-2 border-indigo-600 text-indigo-600 transition-all">Розмова 1</button>
+                <button onclick="switchReadTab(2)" id="tab-read-2" class="px-3 py-1.5 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-slate-800 transition-all">Розмова 2</button>
+                <button onclick="switchReadTab(3)" id="tab-read-3" class="px-3 py-1.5 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-slate-800 transition-all">Розмова 3</button>
+                <button onclick="switchReadTab(4)" id="tab-read-4" class="px-3 py-1.5 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-slate-800 transition-all">Розмова 4</button>
             </div>
 
-            <div class="bg-slate-50/70 p-6 rounded-2xl border border-slate-200/80 space-y-4 shadow-inner" id="read-content">
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-200/60 space-y-3.5" id="read-content">
                 </div>
         </section>
 
-        <section id="step-7" class="step-section bg-white rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-200/60 hidden">
-            <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-500 text-lg"><i class="fa-solid fa-puzzle-piece"></i></div>
-                <h2 class="text-2xl font-extrabold text-slate-950">Заповни пропуски</h2>
-            </div>
-            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Перевірте свої знання структури речень. Оберіть правильні слова з випадаючих списків. Кожен список містить повний банк слів для поточної розмови.</p>
+        <section id="step-7" class="step-section bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hidden">
+            <h2 class="text-xl font-bold text-slate-900 mb-2">🧩 Заповни пропуски</h2>
+            <p class="text-slate-500 text-xs mb-6">Слухайте відповідний аудіотрек безпосередньо біля кожного завдання та заповнюйте пропуски правильними прийменниками або словами.</p>
             
             <div class="space-y-8">
-                <div class="p-6 border border-slate-200/80 rounded-2xl bg-slate-50/40 shadow-sm">
-                    <h3 class="text-xs font-bold text-indigo-600 mb-4 uppercase tracking-wider bg-indigo-50 inline-block px-3 py-1 rounded-md border border-indigo-100">Діалог 1: Розташування готелю</h3>
-                    <div class="text-slate-900 leading-loose text-base space-y-2">
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> <select data-correct="Where" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> is the hotel?</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> It is <select data-correct="downtown" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select>. It is <select data-correct="near" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> the park.</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> <select data-correct="Is" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> it near the museum?</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> Yes, the museum is <select data-correct="across" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> from the hotel <select data-correct="in" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> the park.</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> That is a <select data-correct="good" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> location.</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> Yes, and the mall is <select data-correct="nearby" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> too.</div>
+                <div class="p-5 border border-slate-200 rounded-xl bg-slate-50/40">
+                    <div class="flex flex-col sm:flex-row items-center gap-3 border-b border-slate-200/60 pb-3 mb-4">
+                        <img src="A1-16-1-Prepositions.jpg" class="w-20 h-12 object-cover rounded border border-slate-200">
+                        <audio controls src="A1-16-1-Prepositions.mp3" class="w-full text-sm focus:outline-none"></audio>
+                    </div>
+                    <div class="text-slate-900 text-sm leading-loose space-y-1">
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> <select data-correct="Where" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> is the hotel?</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> It is <select data-correct="downtown" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select>. It is <select data-correct="near" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> the park.</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> <select data-correct="Is" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> it near the museum?</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> Yes, the museum is <select data-correct="across" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> from the hotel <select data-correct="in" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> the park.</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> That is a <select data-correct="good" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> location.</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> Yes, and the mall is <select data-correct="nearby" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> too.</p>
                     </div>
                 </div>
 
-                <div class="p-6 border border-slate-200/80 rounded-2xl bg-slate-50/40 shadow-sm">
-                    <h3 class="text-xs font-bold text-indigo-600 mb-4 uppercase tracking-wider bg-indigo-50 inline-block px-3 py-1 rounded-md border border-indigo-100">Діалог 2: Район проживання</h3>
-                    <div class="text-slate-900 leading-loose text-base space-y-2">
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> Where do you <select data-correct="live" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select>?</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> I live <select data-correct="in" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> the <select data-correct="east" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> side of town.</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> Are you <select data-correct="near" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> the university?</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> Yes, it is not <select data-correct="far" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> away.</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> Are you near the <select data-correct="beach" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select>?</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> Yes, I live <select data-correct="on" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> the beach <select data-correct="actually" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select>.</div>
+                <div class="p-5 border border-slate-200 rounded-xl bg-slate-50/40">
+                    <div class="flex flex-col sm:flex-row items-center gap-3 border-b border-slate-200/60 pb-3 mb-4">
+                        <img src="A1-16-2-Prepositions.jpg" class="w-20 h-12 object-cover rounded border border-slate-200">
+                        <audio controls src="A1-16-2-Prepositions.mp3" class="w-full text-sm focus:outline-none"></audio>
+                    </div>
+                    <div class="text-slate-900 text-sm leading-loose space-y-1">
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> Where do you <select data-correct="live" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select>?</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> I live <select data-correct="in" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> the <select data-correct="east" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> side of town.</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> Are you <select data-correct="near" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> the university?</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> Yes, it is not <select data-correct="far" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> away.</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> Are you near the <select data-correct="beach" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select>?</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> Yes, I live <select data-correct="on" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> the beach <select data-correct="actually" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select>.</p>
                     </div>
                 </div>
 
-                <div class="p-6 border border-slate-200/80 rounded-2xl bg-slate-50/40 shadow-sm">
-                    <h3 class="text-xs font-bold text-indigo-600 mb-4 uppercase tracking-wider bg-indigo-50 inline-block px-3 py-1 rounded-md border border-indigo-100">Діалог 3: Спортзал у молі</h3>
-                    <div class="text-slate-900 leading-loose text-base space-y-2">
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> Where is the <select data-correct="mall" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select>?</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> It is <select data-correct="next" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> to the train <select data-correct="station" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select>.</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> Where is the cafe?</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> It is <select data-correct="across" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> from the train station.</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> And where is the <select data-correct="nearest" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> gym?</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> There is one <select data-correct="in" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> the mall <select data-correct="on" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> the second <select data-correct="floor" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select>.</div>
+                <div class="p-5 border border-slate-200 rounded-xl bg-slate-50/40">
+                    <div class="flex flex-col sm:flex-row items-center gap-3 border-b border-slate-200/60 pb-3 mb-4">
+                        <img src="A1-16-3-Prepositions.jpg" class="w-20 h-12 object-cover rounded border border-slate-200">
+                        <audio controls src="A1-16-3-Prepositions.mp3" class="w-full text-sm focus:outline-none"></audio>
+                    </div>
+                    <div class="text-slate-900 text-sm leading-loose space-y-1">
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> Where is the <select data-correct="mall" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select>?</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> It is <select data-correct="next" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> to the train <select data-correct="station" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select>.</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> Where is the cafe?</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> It is <select data-correct="across" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> from the train station.</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> And where is the <select data-correct="nearest" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> gym?</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> There is one <select data-correct="in" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> the mall <select data-correct="on" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> the second <select data-correct="floor" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select>.</p>
                     </div>
                 </div>
 
-                <div class="p-6 border border-slate-200/80 rounded-2xl bg-slate-50/40 shadow-sm">
-                    <h3 class="text-xs font-bold text-indigo-600 mb-4 uppercase tracking-wider bg-indigo-50 inline-block px-3 py-1 rounded-md border border-indigo-100">Діалог 4: Мовна школа</h3>
-                    <div class="text-slate-900 leading-loose text-base space-y-2">
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> <select data-correct="Does" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> your town have a language <select data-correct="school" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select>?</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> Yes, <select data-correct="there" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> is one on A Street.</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> <select data-correct="Where" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> on A Street?</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> It is <select data-correct="between" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select> the bank and the post <select data-correct="office" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select>.</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Man:</span> Oh, that is <select data-correct="close" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select>.</div>
-                        <div class="bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-xs"><span class="font-bold text-slate-500">Woman:</span> Yes, it is only five minutes <select data-correct="away" onchange="checkPuzzleSelect(this)" class="puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm"><option value="">...</option></select>.</div>
+                <div class="p-5 border border-slate-200 rounded-xl bg-slate-50/40">
+                    <div class="flex flex-col sm:flex-row items-center gap-3 border-b border-slate-200/60 pb-3 mb-4">
+                        <img src="A1-16-4-Prepositions.jpg" class="w-20 h-12 object-cover rounded border border-slate-200">
+                        <audio controls src="A1-16-4-Prepositions.mp3" class="w-full text-sm focus:outline-none"></audio>
+                    </div>
+                    <div class="text-slate-900 text-sm leading-loose space-y-1">
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> <select data-correct="Does" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> your town have a language <select data-correct="school" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select>?</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> Yes, <select data-correct="there" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> is one on A Street.</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> <select data-correct="Where" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> on A Street?</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> It is <select data-correct="between" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select> the bank and the post <select data-correct="office" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select>.</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">A:</span> Oh, that is <select data-correct="close" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select>.</p>
+                        <p><span class="font-bold text-slate-400 text-xs mr-1">B:</span> Yes, it is only five minutes <select data-correct="away" onchange="checkPuzzleSelect(this)" class="puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none"><option value="">...</option></select>.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="step-8" class="step-section bg-white rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-200/60 hidden">
+        <section id="step-8" class="step-section bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hidden">
             <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-500 text-lg"><i class="fa-solid fa-clone"></i></div>
-                    <div>
-                        <h2 class="text-2xl font-extrabold text-slate-950">Флеш-картки виразів</h2>
-                        <p class="text-slate-500 text-xs mt-0.5">Тренуйте цілісні речення з контексту розмов.</p>
-                    </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">📇 Флеш-картки виразів</h2>
+                    <p class="text-slate-500 text-xs">Практикуйте корисні мовні звороти безпосередньо з розмов.</p>
                 </div>
-                <button onclick="toggleAllCards()" class="px-4 py-2.5 text-sm font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-200/80 transition-all shadow-xs active:scale-95">
-                    <i class="fa-solid fa-rotate-left mr-1.5"></i> Перевернути всі
-                </button>
+                <button onclick="toggleAllCards()" class="px-4 py-2 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-200 transition-all">Перевернути всі</button>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="flashcards-container">
                 </div>
         </section>
 
-        <section id="step-9" class="step-section bg-white rounded-3xl p-6 md:p-8 shadow-xl shadow-slate-200/50 border border-slate-200/60 hidden">
-            <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-500 text-lg"><i class="fa-solid fa-comments"></i></div>
-                <h2 class="text-2xl font-extrabold text-slate-950">Практика мовлення</h2>
-            </div>
-            <p class="text-slate-500 text-sm mb-6 leading-relaxed">Оновлені розгорнуті діалоги для роботи у парах. Жодних штучних шаблонів чи заздалегідь написаних початків речень англійською — лише жива комунікація!</p>
+        <section id="step-9" class="step-section bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs hidden">
+            <h2 class="text-xl font-bold text-slate-900 mb-2">🗣️ Практика мовлення</h2>
+            <p class="text-slate-500 text-xs mb-6">Розмовна практика для Студента А та Студента Б. Усі фрази відповідають виключно рівню А1 та лексиці поточного уроку.</p>
             
             <div class="space-y-8">
-                <div class="border border-indigo-100 bg-indigo-50/10 p-6 rounded-2xl shadow-xs">
-                    <h3 class="text-base font-extrabold text-indigo-950 mb-5 flex items-center gap-2"><i class="fa-solid fa-people-arrows text-indigo-600"></i> Частина 1: Діалоги-аналоги (Розширена рольова гра)</h3>
+                <div class="p-5 border border-indigo-100 bg-indigo-50/10 rounded-xl">
+                    <h3 class="text-sm font-extrabold text-indigo-900 mb-4"><i class="fa-solid fa-comments"></i> Частина 1: Діалоги-аналоги (Рольова гра)</h3>
                     
                     <div class="space-y-6">
-                        <div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">Ситуація А: Пошук ресторану</h4>
-                            <div class="space-y-3">
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded-md mt-0.5">Студент А</span>
-                                    <p class="text-sm text-slate-800 bg-slate-50 px-3 py-2 rounded-xl rounded-tl-none w-full">Привіт! Ти не знаєш, де тут найближчий ресторан? Мені потрібно терміново пообідати.</p>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-indigo-600 text-white px-2 py-1 rounded-md mt-0.5">Студент Б</span>
-                                    <p class="text-sm text-indigo-950 bg-indigo-50/60 px-3 py-2 rounded-xl rounded-tl-none w-full">Привіт! Так, звісно. Чудовий італійський ресторан є в центрі міста. Він розташований зовсім поруч із великим парком.</p>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded-md mt-0.5">Студент А</span>
-                                    <p class="text-sm text-slate-800 bg-slate-50 px-3 py-2 rounded-xl rounded-tl-none w-full">О, це чудово. А чи він далеко від готелю?</p>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-indigo-600 text-white px-2 py-1 rounded-md mt-0.5">Студент Б</span>
-                                    <p class="text-sm text-indigo-950 bg-indigo-50/60 px-3 py-2 rounded-xl rounded-tl-none w-full">Ні, зовсім недалеко. Він розташований прямо навпроти готелю, відразу через дорогу.</p>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded-md mt-0.5">Студент А</span>
-                                    <p class="text-sm text-slate-800 bg-slate-50 px-3 py-2 rounded-xl rounded-tl-none w-full">Супер! А торговий центр теж десь там поблизу?</p>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-indigo-600 text-white px-2 py-1 rounded-md mt-0.5">Студент Б</span>
-                                    <p class="text-sm text-indigo-950 bg-indigo-50/60 px-3 py-2 rounded-xl rounded-tl-none w-full">Так, торговий центр знаходиться прямо біля ресторану, буквально за хвилину ходьби. Тобі точно сподобається це місце!</p>
-                                </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-3xs">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Ситуація А: Пошук готелю та торгового центру</h4>
+                            <div class="space-y-2 text-xs text-slate-800">
+                                <p><strong>Студент А:</strong> Де знаходиться готель?</p>
+                                <p><strong>Студент Б:</strong> Він у центрі міста. Він біля парку.</p>
+                                <p><strong>Студент А:</strong> Чи він поруч із музеєм?</p>
+                                <p><strong>Студент Б:</strong> Так, музей навпроти готелю в парку.</p>
+                                <p><strong>Студент А:</strong> Це добре розташування! А торговий центр далеко?</p>
+                                <p><strong>Студент Б:</strong> Ні, торговий центр також поблизу.</p>
                             </div>
                         </div>
 
-                        <div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">Ситуація Б: Нове житло</h4>
-                            <div class="space-y-3">
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded-md mt-0.5">Студент А</span>
-                                    <p class="text-sm text-slate-800 bg-slate-50 px-3 py-2 rounded-xl rounded-tl-none w-full">Привіт! Давно не бачилися. Підкажи, а де ти зараз живеш?</p>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-indigo-600 text-white px-2 py-1 rounded-md mt-0.5">Студент Б</span>
-                                    <p class="text-sm text-indigo-950 bg-indigo-50/60 px-3 py-2 rounded-xl rounded-tl-none w-full">Привіт! О, я переїхав. Тепер я живу в східній частині міста, у дуже затишному районі.</p>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded-md mt-0.5">Студент А</span>
-                                    <p class="text-sm text-slate-800 bg-slate-50 px-3 py-2 rounded-xl rounded-tl-none w-full">Класно! А твій новий будинок знаходиться близько до університету? Тобі зручно діставатися на заняття?</p>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-indigo-600 text-white px-2 py-1 rounded-md mt-0.5">Студент Б</span>
-                                    <p class="text-sm text-indigo-950 bg-indigo-50/60 px-3 py-2 rounded-xl rounded-tl-none w-full">Так, університет зовсім поруч, недалеко звідси. Мені це дуже подобається, бо економить багато часу.</p>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded-md mt-0.5">Студент А</span>
-                                    <p class="text-sm text-slate-800 bg-slate-50 px-3 py-2 rounded-xl rounded-tl-none w-full">Чудово. А як щодо пляжу? Ти ж любив туди ходити кожного тижня.</p>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-indigo-600 text-white px-2 py-1 rounded-md mt-0.5">Студент Б</span>
-                                    <p class="text-sm text-indigo-950 bg-indigo-50/60 px-3 py-2 rounded-xl rounded-tl-none w-full">О, це найкраща частина! Взагалі-то, я живу прямо на пляжі. Вікна моєї кімнати виходять прямо на море!</p>
-                                </div>
-                                <div class="flex items-start gap-2.5">
-                                    <span class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded-md mt-0.5">Студент А</span>
-                                    <p class="text-sm text-slate-800 bg-slate-50 px-3 py-2 rounded-xl rounded-tl-none w-full">Неймовірно! Це просто ідеальне місце для життя. Заздрю тобі білою заздрістю!</p>
-                                </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-3xs">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Ситуація Б: Де ти живеш?</h4>
+                            <div class="space-y-2 text-xs text-slate-800">
+                                <p><strong>Студент А:</strong> Де ти живеш?</p>
+                                <p><strong>Студент Б:</strong> Я живу в східній частині міста.</p>
+                                <p><strong>Студент А:</strong> Чи ти живеш біля університету?</p>
+                                <p><strong>Студент Б:</strong> Так, він недалеко звідси.</p>
+                                <p><strong>Студент А:</strong> Ти живеш поруч із пляжем?</p>
+                                <p><strong>Студент Б:</strong> Так, взагалі-то я живу прямо на пляжі. Це чудово.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="border border-emerald-100 bg-emerald-50/10 p-6 rounded-2xl shadow-xs">
-                    <h3 class="text-base font-extrabold text-emerald-950 mb-5 flex items-center gap-2"><i class="fa-solid fa-comments-text text-emerald-600"></i> Частина 2: Діалоги-інтерв'ю (Жива розмова на 4 репліки)</h3>
+                <div class="p-5 border border-emerald-100 bg-emerald-50/10 rounded-xl">
+                    <h3 class="text-sm font-extrabold text-emerald-900 mb-4"><i class="fa-solid fa-microphone"></i> Частина 2: Діалоги-інтерв'ю (Жива розмова з усною відповіддю)</h3>
                     
                     <div class="space-y-6">
-                        <div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">Інтерв'ю 1: Спортзал у місті</h4>
-                            <div class="space-y-4">
-                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-slate-400">
-                                    <p class="text-xs font-bold text-slate-500 uppercase">Репліка 1 — Студент А:</p>
-                                    <p class="text-sm text-slate-800 mt-1">Задайте питання англійською мовою, перекладаючи усно з української: <span class="italic text-indigo-700 font-medium">«Привіт! Підкажи, будь ласка, де знаходиться найближчий спортзал? Я хочу потренуватися.»</span></p>
-                                </div>
-                                <div class="bg-emerald-50/40 p-3.5 rounded-xl border-l-4 border-emerald-500">
-                                    <p class="text-xs font-bold text-emerald-700 uppercase">Репліка 2 — Студент Б:</p>
-                                    <p class="text-sm text-emerald-950 mt-1 font-medium">Дайте власну усну відповідь англійською мовою:</p>
-                                    <p class="text-xs text-emerald-600 mt-0.5">Підказка: скажіть, що спортзал розташований у великому торговому центрі неподалік.</p>
-                                </div>
-                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-slate-400">
-                                    <p class="text-xs font-bold text-slate-500 uppercase">Репліка 3 — Студент А:</p>
-                                    <p class="text-sm text-slate-800 mt-1">Продовжуйте розмову англійською, перекладаючи усно: <span class="italic text-indigo-700 font-medium">«Справді? А на якому він поверсі і чи складно його знайти у будівлі?»</span></p>
-                                </div>
-                                <div class="bg-emerald-50/40 p-3.5 rounded-xl border-l-4 border-emerald-500">
-                                    <p class="text-xs font-bold text-emerald-700 uppercase">Репліка 4 — Студент Б:</p>
-                                    <p class="text-sm text-emerald-950 mt-1 font-medium">Завершіть розмову усною відповіддю англійською:</p>
-                                    <p class="text-xs text-emerald-600 mt-0.5">Підказка: поясніть, що він знаходиться на другому поверсі, прямо навпроти великого кафе, і це всього в 5 хвилинах ходьби від залізничного вокзалу.</p>
-                                </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-3xs">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Інтерв'ю 1: Шукаємо спортзал у місті</h4>
+                            <div class="space-y-3 text-xs">
+                                <div class="p-2 bg-slate-50 rounded-lg"><span class="font-bold text-slate-500">1. Студент А (перекладає усно):</span> «Привіт! Де знаходиться найближчий спортзал?»</div>
+                                <div class="p-2 bg-emerald-50 rounded-lg"><span class="font-bold text-emerald-800">2. Студент Б (усна відповідь англійською):</span> Дайте відповідь про спортзал за підказкою (наприклад, що він у торговому центрі: <em>It is in the mall.</em>)</div>
+                                <div class="p-2 bg-slate-50 rounded-lg"><span class="font-bold text-slate-500">3. Студент А (перекладає усно):</span> «Він на другому поверсі?»</div>
+                                <div class="p-2 bg-emerald-50 rounded-lg"><span class="font-bold text-emerald-800">4. Студент Б (усна відповідь англійською):</span> Підтвердьте, використовуючи вираз про поверх (наприклад: <em>Yes, it is on the second floor.</em>)</div>
+                                <div class="p-2 bg-slate-50 rounded-lg"><span class="font-bold text-slate-500">5. Студент А (перекладає усно):</span> «Чи він далеко від залізничного вокзалу?»</div>
+                                <div class="p-2 bg-emerald-50 rounded-lg"><span class="font-bold text-emerald-800">6. Студент Б (усна відповідь англійською):</span> Заперечте, сказавши, що він поруч (наприклад: <em>No, it is next to the train station.</em>)</div>
                             </div>
                         </div>
 
-                        <div class="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs">
-                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-100 pb-2">Інтерв'ю 2: Твоє житло</h4>
-                            <div class="space-y-4">
-                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-slate-400">
-                                    <p class="text-xs font-bold text-slate-500 uppercase">Репліка 1 — Студент А:</p>
-                                    <p class="text-sm text-slate-800 mt-1">Задайте питання англійською мовою, перекладаючи усно з української: <span class="italic text-indigo-700 font-medium">«Скажи, будь ласка, а ти живеш далеко від центру міста чи десь поруч?»</span></p>
-                                </div>
-                                <div class="bg-emerald-50/40 p-3.5 rounded-xl border-l-4 border-emerald-500">
-                                    <p class="text-xs font-bold text-emerald-700 uppercase">Репліка 2 — Студент Б:</p>
-                                    <p class="text-sm text-emerald-950 mt-1 font-medium">Дайте власну усну відповідь англійською мовою:</p>
-                                    <p class="text-xs text-emerald-600 mt-0.5">Підказка: розкажіть, у якій реальній чи вигаданій частині міста ви зараз проживаєте (наприклад, у східній частині, західній чи в самому центрі).</p>
-                                </div>
-                                <div class="bg-slate-50 p-3.5 rounded-xl border-l-4 border-slate-400">
-                                    <p class="text-xs font-bold text-slate-400 uppercase">Репліка 3 — Студент А:</p>
-                                    <p class="text-sm text-slate-800 mt-1">Продовжуйте розмову англійською, перекладаючи усно: <span class="italic text-indigo-700 font-medium">«О, цікаво! А твій будинок розташований поруч із якимось парком чи, можливо, біля нашої мовної школи?»</span></p>
-                                </div>
-                                <div class="bg-emerald-50/40 p-3.5 rounded-xl border-l-4 border-emerald-500">
-                                    <p class="text-xs font-bold text-emerald-700 uppercase">Репліка 4 — Студент Б:</p>
-                                    <p class="text-sm text-emerald-950 mt-1 font-medium">Завершіть розмову усною відповіддю англійською:</p>
-                                    <p class="text-xs text-emerald-600 mt-0.5">Підказка: опишіть реальну інфраструктуру навколо вашого дому, обов'язково використавши просторові прийменники (наприклад, <em>near the park, next to the language school, between the market and bank</em>).</p>
-                                </div>
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-3xs">
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Інтерв'ю 2: Про твоє місто та мовну школу</h4>
+                            <div class="space-y-3 text-xs">
+                                <div class="p-2 bg-slate-50 rounded-lg"><span class="font-bold text-slate-500">1. Студент А (перекладає усно):</span> «Скажи, будь ласка, чи є у твоєму місті мовна школа?»</div>
+                                <div class="p-2 bg-emerald-50 rounded-lg"><span class="font-bold text-emerald-800">2. Студент Б (усна відповідь англійською):</span> Дайте ствердну відповідь про наявність школи на вулиці А (наприклад: <em>Yes, there is one on A Street.</em>)</div>
+                                <div class="p-2 bg-slate-50 rounded-lg"><span class="font-bold text-slate-500">3. Студент А (перекладає усно):</span> «Де саме на вулиці А вона знаходиться?»</div>
+                                <div class="p-2 bg-emerald-50 rounded-lg"><span class="font-bold text-emerald-800">4. Студент Б (усна відповідь англійською):</span> Поясніть розташування між банком та поштою (наприклад: <em>It is between the bank and the post office.</em>)</div>
+                                <div class="p-2 bg-slate-50 rounded-lg"><span class="font-bold text-slate-500">5. Студент А (перекладає усно):</span> «О, це близько?»</div>
+                                <div class="p-2 bg-emerald-50 rounded-lg"><span class="font-bold text-emerald-800">6. Студент Б (усна відповідь англійською):</span> Завершіть фразою про п'ять хвилин (наприклад: <em>Yes, that is close. It is only five minutes away.</em>)</div>
                             </div>
                         </div>
                     </div>
@@ -560,64 +453,64 @@
 
     </main>
 
-    <footer class="bg-white/95 backdrop-blur-md border-t border-slate-200 fixed bottom-0 left-0 w-full py-4 px-4 z-30 shadow-lg">
+    <footer class="bg-white border-t border-slate-200 fixed bottom-0 left-0 w-full py-4 px-6 z-30 shadow-md">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
-            <button onclick="prevStep()" id="btn-prev" class="px-5 py-3 rounded-xl text-sm font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-xs">
-                <i class="fa-solid fa-arrow-left mr-2"></i> Назад
+            <button onclick="prevStep()" id="btn-prev" class="px-5 py-2 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 disabled:opacity-40 transition-all">
+                <i class="fa-solid fa-arrow-left mr-1.5"></i> Назад
             </button>
-            <button onclick="nextStep()" id="btn-next" class="px-6 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white shadow-md shadow-indigo-200 transition-all">
-                Далі <i class="fa-solid fa-arrow-right ml-2"></i>
+            <button onclick="nextStep()" id="btn-next" class="px-5 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white transition-all shadow-sm">
+                Далі <i class="fa-solid fa-arrow-right ml-1.5"></i>
             </button>
         </div>
     </footer>
 
-    <button onclick="toggleModal(true)" class="fixed bottom-22 right-6 z-50 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold px-5 py-4 rounded-full shadow-2xl flex items-center gap-2.5 hover:scale-105 transition-all text-sm md:text-base border border-amber-400/30">
-        <i class="fa-solid fa-chart-line text-base"></i> <span>Результати</span> <span id="fab-score" class="bg-white/20 px-2 py-0.5 rounded-md text-xs font-mono">0/44</span>
+    <button onclick="toggleModal(true)" class="fixed bottom-20 right-6 z-50 bg-amber-500 hover:bg-amber-600 text-white font-bold px-4 py-3.5 rounded-full shadow-lg flex items-center gap-2 transition-all text-xs border border-amber-400">
+        <i class="fa-solid fa-chart-simple"></i> <span>Результати</span> <span id="fab-score" class="font-mono bg-amber-600 px-1.5 py-0.5 rounded text-[11px]">0/44</span>
     </button>
 
-    <div id="results-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 transition-all">
+    <div id="results-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-slate-100">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-extrabold text-slate-950">📊 Звіт про успішність</h3>
-                <button onclick="toggleModal(false)" class="text-slate-400 hover:text-slate-600 p-1 text-xl"><i class="fa-solid fa-xmark"></i></button>
+                <h3 class="text-base font-bold text-slate-900">📊 Мій звіт з успішності</h3>
+                <button onclick="toggleModal(false)" class="text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
             </div>
             
-            <div class="text-center bg-gradient-to-b from-slate-50 to-slate-100 rounded-2xl p-5 mb-4 border border-slate-200/60">
-                <div class="text-5xl mb-2 animate-bounce" id="modal-medal">💪</div>
-                <div class="text-3xl font-black text-slate-900" id="modal-percent">0%</div>
-                <p class="text-xs text-slate-500 font-semibold mt-1 uppercase tracking-wider">Загальний прогрес виконання завдань</p>
+            <div class="text-center bg-slate-50 rounded-xl p-4 mb-4 border border-slate-200/60">
+                <div class="text-4xl mb-1" id="modal-medal">💪</div>
+                <div class="text-2xl font-black text-slate-900" id="modal-percent">0%</div>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Поточний прогрес</p>
             </div>
 
-            <div class="space-y-2 mb-4 max-h-48 overflow-y-auto pr-1">
-                <div class="flex justify-between items-center p-3 rounded-xl bg-slate-50 border border-slate-200 text-sm">
-                    <span class="font-bold text-slate-700">🎧 Квіз Розмови 1</span>
+            <div class="space-y-1.5 mb-4 max-h-40 overflow-y-auto pr-1 text-xs">
+                <div class="flex justify-between items-center p-2 rounded-lg bg-slate-50 border border-slate-200">
+                    <span class="font-medium text-slate-600">Квіз Розмови 1</span>
                     <span class="font-bold text-indigo-600 font-mono" id="score-q1">0 / 3</span>
                 </div>
-                <div class="flex justify-between items-center p-3 rounded-xl bg-slate-50 border border-slate-200 text-sm">
-                    <span class="font-bold text-slate-700">🎧 Квіз Розмови 2</span>
+                <div class="flex justify-between items-center p-2 rounded-lg bg-slate-50 border border-slate-200">
+                    <span class="font-medium text-slate-600">Квіз Розмови 2</span>
                     <span class="font-bold text-indigo-600 font-mono" id="score-q2">0 / 3</span>
                 </div>
-                <div class="flex justify-between items-center p-3 rounded-xl bg-slate-50 border border-slate-200 text-sm">
-                    <span class="font-bold text-slate-700">🎧 Квіз Розмови 3</span>
+                <div class="flex justify-between items-center p-2 rounded-lg bg-slate-50 border border-slate-200">
+                    <span class="font-medium text-slate-600">Квіз Розмови 3</span>
                     <span class="font-bold text-indigo-600 font-mono" id="score-q3">0 / 3</span>
                 </div>
-                <div class="flex justify-between items-center p-3 rounded-xl bg-slate-50 border border-slate-200 text-sm">
-                    <span class="font-bold text-slate-700">🎧 Квіз Розмови 4</span>
+                <div class="flex justify-between items-center p-2 rounded-lg bg-slate-50 border border-slate-200">
+                    <span class="font-medium text-slate-600">Квіз Розмови 4</span>
                     <span class="font-bold text-indigo-600 font-mono" id="score-q4">0 / 3</span>
                 </div>
-                <div class="flex justify-between items-center p-3 rounded-xl bg-slate-50 border border-slate-200 text-sm">
-                    <span class="font-bold text-slate-700">🧩 Інтерактивний Пазл (32 слова)</span>
+                <div class="flex justify-between items-center p-2 rounded-lg bg-slate-50 border border-slate-200">
+                    <span class="font-medium text-slate-600">Інтерактивний Пазл</span>
                     <span class="font-bold text-indigo-600 font-mono" id="score-puzzle">0 / 32</span>
                 </div>
             </div>
 
             <div class="mb-4">
-                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Звіт для відправки вчителю:</label>
-                <textarea id="teacher-report" readonly class="w-full h-20 text-xs font-mono p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none resize-none text-slate-600"></textarea>
+                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Звіт для копіювання вчителю:</label>
+                <textarea id="teacher-report" readonly class="w-full h-16 text-[11px] font-mono p-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none resize-none text-slate-500"></textarea>
             </div>
 
-            <button onclick="copyTeacherReport()" class="w-full py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition-all shadow-md shadow-indigo-100 text-sm active:scale-95">
-                <i class="fa-solid fa-copy mr-2"></i> Скопіювати результат у буфер
+            <button onclick="copyTeacherReport()" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition-all text-xs">
+                <i class="fa-solid fa-copy mr-1.5"></i> Скопіювати у буфер обміну
             </button>
         </div>
     </div>
@@ -626,16 +519,16 @@
         let currentStep = 0;
         const totalSteps = 10;
 
-        // Автоматичний переклад словника (Крок 1)
+        // Офіційні слова та вирази з точним перекладом на українську мову
         const vocabData = [
             { word: "downtown", trans: "центр міста / діловий центр" },
             { word: "near", trans: "біля / близько від" },
             { word: "across from", trans: "навпроти" },
             { word: "near by", trans: "поруч / поблизу" },
             { word: "east side", trans: "східна сторона (частина міста)" },
-            { word: "not far away", trans: "недалеко / близько" },
+            { word: "not far away", trans: "недалеко / близько звідси" },
             { word: "beach", trans: "пляж" },
-            { word: "next to", trans: "поруч із / безпосередньо за" },
+            { word: "next to", trans: "поруч із" },
             { word: "train station", trans: "залізничний вокзал" },
             { word: "nearest gym", trans: "найближчий спортзал" },
             { word: "second floor", trans: "другий поверх" },
@@ -646,36 +539,36 @@
             { word: "only five minutes away", trans: "всього в п'яти хвилинах звідси" }
         ];
 
-        // Преміум чат-скрипти для читання (Крок 6)
+        // Преміум-чат оформлення скриптів розмов для етапу читання
         const readTexts = {
             1: `
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">Where is the hotel?</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">It is downtown. It is near the park.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">Is it near the museum?</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">Yes, the museum is across from the hotel in the park.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">That is a good location.</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">Yes, and the mall is nearby too.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>`,
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">Where is the hotel?</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">It is downtown. It is near the park.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">Is it near the museum?</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">Yes, the museum is across from the hotel in the park.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">That is a good location.</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">Yes, and the mall is nearby too.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>`,
             2: `
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">Where do you live?</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">I live in the east side of town.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">Are you near the university?</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">Yes, it is not far away.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">Are you near the beach?</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">Yes, I live on the beach actually.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>`,
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">Where do you live?</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">I live in the east side of town.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">Are you near the university?</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">Yes, it is not far away.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">Are you near the beach?</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">Yes, I live on the beach actually.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>`,
             3: `
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">Where is the mall?</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">It is next to the train station.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">Where is the cafe?</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">It is across from the train station.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">And where is the nearest gym?</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">There is one in the mall on the second floor.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>`,
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">Where is the mall?</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">It is next to the train station.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">Where is the cafe?</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">It is across from the train station.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">And where is the nearest gym?</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">There is one in the mall on the second floor.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>`,
             4: `
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">Does your town have a language school?</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">Yes, there is one on A Street.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">Where on A Street?</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">It is between the bank and the post office.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>
-                <div class="flex items-start gap-3"><span class="text-xs font-bold bg-slate-200 px-2 py-1 rounded">Man</span><p class="text-sm bg-white p-3 rounded-xl border border-slate-200 max-w-[85%] shadow-xs">Oh, that is close.</p></div>
-                <div class="flex items-start gap-3 justify-end"><p class="text-sm bg-indigo-600 text-white p-3 rounded-xl max-w-[85%] shadow-xs">Yes, it is only five minutes away.</p><span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-1 rounded">Woman</span></div>`
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">Does your town have a language school?</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">Yes, there is one on A Street.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">Where on A Street?</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">It is between the bank and the post office.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>
+                <div class="flex items-start gap-2.5"><span class="text-[10px] font-bold bg-slate-200 px-1.5 py-0.5 rounded text-slate-600 mt-1">Man</span><p class="text-xs bg-white p-2.5 rounded-xl border border-slate-200 max-w-[80%] shadow-3xs">Oh, that is close.</p></div>
+                <div class="flex items-start gap-2.5 justify-end"><p class="text-xs bg-indigo-600 text-white p-2.5 rounded-xl max-w-[80%] shadow-3xs">Yes, it is only five minutes away.</p><span class="text-[10px] font-bold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded mt-1">Woman</span></div>`
         };
 
         const puzzleBanks = {
@@ -685,19 +578,19 @@
             4: ["Where", "there", "office", "between", "Does", "away", "school", "close"]
         };
 
-        // Живі фрази прямо з діалогів для флеш-карток
+        // Живі прості фрази виключно з тексту діалогу (Крок 8)
         const flashcardsData = [
-            { eng: "It is downtown.", ukr: "Це у центрі міста." },
-            { eng: "The museum is across from the hotel in the park.", ukr: "Музей розташований навпроти готелю в парку." },
+            { eng: "It is downtown.", ukr: "Він розташований у центрі міста." },
+            { eng: "It is near the park.", ukr: "Він розташований біля парку." },
+            { eng: "The museum is across from the hotel.", ukr: "Музей розташований навпроти готелю." },
             { eng: "That is a good location.", ukr: "Це гарне розташування." },
             { eng: "The mall is nearby too.", ukr: "Торговий центр також поблизу." },
             { eng: "I live in the east side of town.", ukr: "Я живу в східній частині міста." },
             { eng: "It is not far away.", ukr: "Це недалеко." },
             { eng: "I live on the beach actually.", ukr: "Взагалі-то я живу прямо на пляжі." },
-            { eng: "It is next to the train station.", ukr: "Він знаходиться поруч із залізничним вокзалом." },
-            { eng: "There is one in the mall on the second floor.", ukr: "Один є в торговому центрі на другому поверсі." },
-            { eng: "It is between the bank and the post office.", ukr: "Вона розташована між банком та поштовим відділенням." },
-            { eng: "Oh, that is close.", ukr: "О, це близько." },
+            { eng: "It is next to the train station.", ukr: "Він розташований поруч із вокзалом." },
+            { eng: "There is one in the mall.", ukr: "Один є в торговому центрі." },
+            { eng: "It is between the bank and the post office.", ukr: "Вона розташована між банком та поштою." },
             { eng: "It is only five minutes away.", ukr: "Це всього в п'яти хвилинах звідси." }
         ];
 
@@ -713,14 +606,14 @@
             const container = document.getElementById('vocab-container');
             vocabData.forEach(item => {
                 const card = document.createElement('div');
-                card.className = "flex items-center justify-between p-4 bg-white border border-slate-200/80 rounded-2xl shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-300 group";
+                card.className = "flex items-center justify-between p-3.5 bg-white border border-slate-200 rounded-xl hover:border-slate-300 transition-all";
                 card.innerHTML = `
                     <div>
-                        <p class="font-extrabold text-slate-900 group-hover:text-indigo-600 transition-colors text-base">${item.word}</p>
-                        <p class="text-xs text-slate-500 font-semibold mt-0.5">${item.trans}</p>
+                        <p class="font-bold text-slate-900 text-sm">${item.word}</p>
+                        <p class="text-[11px] text-slate-500 font-medium mt-0.5">${item.trans}</p>
                     </div>
-                    <button onclick="speakWord('${item.word}')" class="p-2.5 bg-slate-50 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 border border-slate-200 hover:border-indigo-100 rounded-xl transition-all shadow-xs active:scale-95">
-                        <i class="fa-solid fa-volume-high text-sm"></i>
+                    <button onclick="speakWord('${item.word}')" class="p-2 bg-slate-50 text-indigo-600 hover:bg-indigo-50 rounded-lg border border-slate-200 hover:border-indigo-100 transition-all shadow-3xs">
+                        <i class="fa-solid fa-volume-high text-xs"></i>
                     </button>
                 `;
                 container.appendChild(card);
@@ -759,9 +652,9 @@
             for (let i = 1; i <= 4; i++) {
                 const tab = document.getElementById(`tab-read-${i}`);
                 if (i === num) {
-                    tab.className = "px-4 py-2 text-sm font-bold border-b-2 border-indigo-600 text-indigo-600 whitespace-nowrap transition-all";
+                    tab.className = "px-3 py-1.5 text-xs font-bold border-b-2 border-indigo-600 text-indigo-600 whitespace-nowrap transition-all";
                 } else {
-                    tab.className = "px-4 py-2 text-sm font-semibold text-slate-500 border-b-2 border-transparent hover:text-slate-800 whitespace-nowrap transition-all";
+                    tab.className = "px-3 py-1.5 text-xs font-semibold text-slate-500 border-b-2 border-transparent hover:text-slate-800 whitespace-nowrap transition-all";
                 }
             }
             document.getElementById('read-content').innerHTML = readTexts[num];
@@ -771,15 +664,15 @@
             const container = document.getElementById('flashcards-container');
             flashcardsData.forEach((item, index) => {
                 const card = document.createElement('div');
-                card.className = "p-5 bg-slate-50/50 hover:bg-white border border-slate-200 rounded-2xl shadow-xs text-center cursor-pointer min-h-[110px] flex flex-col justify-center items-center transition-all duration-300 card-item select-none border-dashed hover:border-solid hover:shadow-md";
+                card.className = "p-4 bg-slate-50/50 hover:bg-white border border-slate-200 border-dashed hover:border-solid hover:shadow-xs rounded-xl text-center cursor-pointer min-h-[90px] flex flex-col justify-center items-center transition-all card-item select-none";
                 card.setAttribute('data-side', 'eng');
                 card.setAttribute('data-eng', item.eng);
                 card.setAttribute('data-ukr', item.ukr);
                 card.onclick = () => toggleCard(card);
                 
                 card.innerHTML = `
-                    <p class="font-bold text-indigo-600 text-sm md:text-base px-2">${item.eng}</p>
-                    <span class="text-[9px] uppercase font-bold tracking-widest text-slate-400 block mt-3 bg-slate-100 px-2 py-0.5 rounded-md">🇬🇧 English</span>
+                    <p class="font-bold text-indigo-600 text-xs md:text-sm">${item.eng}</p>
+                    <span class="text-[9px] uppercase font-bold tracking-wider text-slate-400 block mt-2">🇬🇧 Англійська</span>
                 `;
                 container.appendChild(card);
             });
@@ -793,18 +686,18 @@
             if (side === 'eng') {
                 card.setAttribute('data-side', 'ukr');
                 card.innerHTML = `
-                    <p class="font-extrabold text-slate-900 text-sm md:text-base px-2">${ukr}</p>
-                    <span class="text-[9px] uppercase font-bold tracking-widest text-amber-700 block mt-3 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-100">🇺🇦 Українська</span>
+                    <p class="font-bold text-slate-900 text-xs md:text-sm">${ukr}</p>
+                    <span class="text-[9px] uppercase font-bold tracking-wider text-amber-600 block mt-2">🇺🇦 Українська</span>
                 `;
                 card.classList.replace('bg-slate-50/50', 'bg-white');
-                card.className = card.className.replace('border-slate-200', 'border-amber-300 shadow-md');
+                card.classList.add('border-amber-300');
             } else {
                 card.setAttribute('data-side', 'eng');
                 card.innerHTML = `
-                    <p class="font-bold text-indigo-600 text-sm md:text-base px-2">${eng}</p>
-                    <span class="text-[9px] uppercase font-bold tracking-widest text-slate-400 block mt-3 bg-slate-100 px-2 py-0.5 rounded-md">🇬🇧 English</span>
+                    <p class="font-bold text-indigo-600 text-xs md:text-sm">${eng}</p>
+                    <span class="text-[9px] uppercase font-bold tracking-wider text-slate-400 block mt-2">🇬🇧 Англійська</span>
                 `;
-                card.className = card.className.replace('border-amber-300 shadow-md', 'border-slate-200');
+                card.classList.remove('border-amber-300');
             }
         }
 
@@ -814,9 +707,7 @@
             allCardsState = allCardsState === 'eng' ? 'ukr' : 'eng';
             cards.forEach(card => {
                 const side = card.getAttribute('data-side');
-                if (side !== allCardsState) {
-                    toggleCard(card);
-                }
+                if (side !== allCardsState) toggleCard(card);
             });
         }
 
@@ -828,94 +719,78 @@
             for (let i = 0; i < totalSteps; i++) {
                 const btn = document.getElementById(`btn-step-${i}`);
                 if (i === currentStep) {
-                    btn.className = "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 bg-white shadow-md shadow-slate-100 border border-indigo-100 text-indigo-600 scale-105";
+                    btn.className = "flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 bg-white shadow-sm border border-slate-200 text-indigo-600";
                 } else {
-                    btn.className = "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 text-slate-600 hover:bg-white hover:shadow-sm";
+                    btn.className = "flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 text-slate-500 hover:bg-slate-200/60";
                 }
             }
 
             document.getElementById('btn-prev').disabled = currentStep === 0;
             const nextBtn = document.getElementById('btn-next');
             if (currentStep === totalSteps - 1) {
-                nextBtn.innerHTML = `Завершити <i class="fa-solid fa-circle-check ml-1.5"></i>`;
-                nextBtn.className = "px-6 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-md shadow-emerald-100 transition-all";
+                nextBtn.innerHTML = `Завершити <i class="fa-solid fa-check ml-1"></i>`;
             } else {
-                nextBtn.innerHTML = `Далі <i class="fa-solid fa-arrow-right ml-1.5"></i>`;
-                nextBtn.className = "px-6 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white shadow-md shadow-indigo-200 transition-all";
+                nextBtn.innerHTML = `Далі <i class="fa-solid fa-arrow-right ml-1"></i>`;
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function nextStep() {
-            if (currentStep < totalSteps - 1) {
-                goToStep(currentStep + 1);
-            } else {
-                toggleModal(true);
-            }
+            if (currentStep < totalSteps - 1) goToStep(currentStep + 1);
+            else toggleModal(true);
         }
 
         function prevStep() {
-            if (currentStep > 0) {
-                goToStep(currentStep - 1);
-            }
+            if (currentStep > 0) goToStep(currentStep - 1);
         }
 
         function checkQuizAnswer(radioInput) {
             const block = radioInput.closest('.quiz-block');
-            const labels = block.querySelectorAll('label');
-            
-            labels.forEach(l => {
-                l.className = "flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer transition-all shadow-sm";
+            block.querySelectorAll('label').forEach(l => {
+                l.className = "flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer";
             });
 
             const correctValue = block.getAttribute('data-correct');
             const selectedLabel = radioInput.closest('label');
             
             if (radioInput.value === correctValue) {
-                selectedLabel.className = "flex items-center gap-3 p-3.5 rounded-xl border-emerald-400 bg-emerald-50 text-emerald-950 font-bold cursor-pointer transition-all shadow-sm shadow-emerald-50";
+                selectedLabel.className = "flex items-center gap-3 p-2.5 rounded-lg border-emerald-400 bg-emerald-50 text-emerald-900 font-bold cursor-pointer";
             } else {
-                selectedLabel.className = "flex items-center gap-3 p-3.5 rounded-xl border-rose-300 bg-rose-50 text-rose-950 font-medium cursor-pointer transition-all shadow-sm";
+                selectedLabel.className = "flex items-center gap-3 p-2.5 rounded-lg border-rose-300 bg-rose-50 text-rose-900 font-medium cursor-pointer";
             }
             updateScores();
         }
 
         function checkPuzzleSelect(selectElement) {
             const correctValue = selectElement.getAttribute('data-correct');
-            const val = selectElement.value;
-
-            if (val === "") {
-                selectElement.className = "puzzle-select mx-1 px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-sm font-bold text-indigo-700 focus:outline-none focus:border-indigo-500 shadow-sm";
-            } else if (val === correctValue) {
-                selectElement.className = "puzzle-select mx-1 px-3 py-1.5 bg-emerald-50 text-emerald-800 border-2 border-emerald-500 rounded-lg text-sm font-extrabold focus:outline-none shadow-xs";
+            if (selectElement.value === "") {
+                selectElement.className = "puzzle-select px-2 py-0.5 bg-white border border-slate-300 rounded text-xs font-bold text-indigo-600 focus:outline-none";
+            } else if (selectElement.value === correctValue) {
+                selectElement.className = "puzzle-select px-2 py-0.5 bg-emerald-50 text-emerald-700 border border-emerald-400 rounded text-xs font-extrabold focus:outline-none";
             } else {
-                selectElement.className = "puzzle-select mx-1 px-3 py-1.5 bg-rose-50 text-rose-800 border-2 border-rose-400 rounded-lg text-sm font-extrabold focus:outline-none shadow-xs";
+                selectElement.className = "puzzle-select px-2 py-0.5 bg-rose-50 text-rose-700 border border-rose-300 rounded text-xs font-extrabold focus:outline-none";
             }
             updateScores();
         }
 
         function updateScores() {
             let q1 = 0, q2 = 0, q3 = 0, q4 = 0;
-            
-            document.querySelectorAll('.quiz-block[data-quiz="1"]').forEach(block => {
-                const selected = block.querySelector('input[type="radio"]:checked');
-                if (selected && selected.value === block.getAttribute('data-correct')) q1++;
+            document.querySelectorAll('.quiz-block[data-quiz="1"]').forEach(b => {
+                const s = b.querySelector('input[type="radio"]:checked'); if (s && s.value === b.getAttribute('data-correct')) q1++;
             });
-            document.querySelectorAll('.quiz-block[data-quiz="2"]').forEach(block => {
-                const selected = block.querySelector('input[type="radio"]:checked');
-                if (selected && selected.value === block.getAttribute('data-correct')) q2++;
+            document.querySelectorAll('.quiz-block[data-quiz="2"]').forEach(b => {
+                const s = b.querySelector('input[type="radio"]:checked'); if (s && s.value === b.getAttribute('data-correct')) q2++;
             });
-            document.querySelectorAll('.quiz-block[data-quiz="3"]').forEach(block => {
-                const selected = block.querySelector('input[type="radio"]:checked');
-                if (selected && selected.value === block.getAttribute('data-correct')) q3++;
+            document.querySelectorAll('.quiz-block[data-quiz="3"]').forEach(b => {
+                const s = b.querySelector('input[type="radio"]:checked'); if (s && s.value === b.getAttribute('data-correct')) q3++;
             });
-            document.querySelectorAll('.quiz-block[data-quiz="4"]').forEach(block => {
-                const selected = block.querySelector('input[type="radio"]:checked');
-                if (selected && selected.value === block.getAttribute('data-correct')) q4++;
+            document.querySelectorAll('.quiz-block[data-quiz="4"]').forEach(b => {
+                const s = b.querySelector('input[type="radio"]:checked'); if (s && s.value === b.getAttribute('data-correct')) q4++;
             });
 
             let puzzleScore = 0;
-            document.querySelectorAll('.puzzle-select').forEach(select => {
-                if (select.value === select.getAttribute('data-correct')) puzzleScore++;
+            document.querySelectorAll('.puzzle-select').forEach(s => {
+                if (s.value === s.getAttribute('data-correct')) puzzleScore++;
             });
 
             const totalScore = q1 + q2 + q3 + q4 + puzzleScore;
@@ -935,34 +810,21 @@
             else if (percent >= 50) medal = "👍";
             document.getElementById('modal-medal').textContent = medal;
 
-            let report = `УРОК SUCCESS REPORT • Way2English\n`;
-            report += `Тема: A1-16 Prepositions\n`;
-            report += `Результат: ${totalScore}/44 балів (${percent}%)\n`;
-            report += `Оцінка: ${medal}\n`;
-            report += `---------------------------\n`;
-            report += `• Розмова 1 квіз: ${q1}/3\n`;
-            report += `• Розмова 2 квіз: ${q2}/3\n`;
-            report += `• Розмова 3 квіз: ${q3}/3\n`;
-            report += `• Розмова 4 квіз: ${q4}/3\n`;
-            report += `• Інтерактивний пазл: ${puzzleScore}/32`;
+            let report = `УРОК SUCCESS REPORT • Way2English\nТема: A1-16 Prepositions\nРезультат: ${totalScore}/44 балів (${percent}%)\nОцінка: ${medal}\n---------------------------\n• Квіз 1: ${q1}/3 | Квіз 2: ${q2}/3\n• Квіз 3: ${q3}/3 | Квіз 4: ${q4}/3\n• Пазл пропуски: ${puzzleScore}/32`;
             document.getElementById('teacher-report').value = report;
         }
 
         function toggleModal(show) {
             const modal = document.getElementById('results-modal');
-            if (show) {
-                updateScores();
-                modal.classList.remove('hidden');
-            } else {
-                modal.classList.add('hidden');
-            }
+            if (show) { updateScores(); modal.classList.remove('hidden'); }
+            else { modal.classList.add('hidden'); }
         }
 
         function copyTeacherReport() {
             const textarea = document.getElementById('teacher-report');
             textarea.select();
             navigator.clipboard.writeText(textarea.value);
-            alert("Результати успішно скопійовано! Надішліть цей текст вашому викладачу.");
+            alert("Результати скопійовано! Надішліть звіт викладачу.");
         }
     </script>
 </body>
