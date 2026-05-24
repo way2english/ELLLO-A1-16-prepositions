@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Way2English — A1-16 Prepositions</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --success: #22c55e;
+            --error: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Stepper Navigation */
+        .stepper-container {
+            overflow-x: auto;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .stepper {
+            display: flex;
+            min-width: max-content;
+            padding: 10px 20px;
+            list-style: none;
+            gap: 10px;
+        }
+
+        .step-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: #f1f5f9;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--muted);
+            transition: all 0.2s ease;
+        }
+
+        .step-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .step-btn.completed {
+            border-color: var(--success);
+            color: var(--success);
+            background: #f0fdf4;
+        }
+
+        /* Content Area */
+        .main-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .lesson-step {
+            display: none;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .lesson-step.active {
+            display: block;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 10px;
+        }
+
+        /* Video Step */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .conv-list {
+            margin-top: 15px;
+            list-style-type: square;
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        /* Vocab Grid */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+        }
+
+        .vocab-card {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vocab-info h4 {
+            font-size: 1.05rem;
+            color: #0f172a;
+        }
+
+        .vocab-info p {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .audio-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Conversation Steps */
+        .media-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .media-box img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        .transcript {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .transcript p {
+            margin-bottom: 8px;
+        }
+
+        /* Quiz Styling */
+        .quiz-container {
+            margin-top: 20px;
+            border-top: 2px dashed var(--border);
+            padding-top: 20px;
+        }
+
+        .question-block {
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option-btn {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover {
+            background: #f8fafc;
+        }
+
+        .option-btn.selected-correct {
+            background: #dcfce7;
+            border-color: var(--success);
+            color: #166534;
+        }
+
+        .option-btn.selected-incorrect {
+            background: #fee2e2;
+            border-color: var(--error);
+            color: #991b1b;
+        }
+
+        /* Puzzle Styling */
+        .puzzle-text {
+            line-height: 2.2;
+            font-size: 1.1rem;
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .puzzle-select {
+            padding: 4px 8px;
+            font-size: 0.95rem;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            background: white;
+            font-weight: bold;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .puzzle-select.correct {
+            border-color: var(--success);
+            color: var(--success);
+            background: #f0fdf4;
+        }
+
+        /* Flashcards */
+        .flashcard-wrapper {
+            perspective: 1000px;
+            width: 100%;
+            max-width: 350px;
+            height: 200px;
+            margin: 20px auto;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+        }
+
+        .card-back {
+            background: #ffffff;
+            color: #1e293b;
+            border: 2px solid var(--primary);
+            transform: rotateY(180deg);
+        }
+
+        .fc-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .fc-btn {
+            padding: 8px 16px;
+            background: #e2e8f0;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Speaking Step */
+        .speaking-box {
+            background: #fffdf5;
+            border: 1px solid #fef08a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .speaking-box h3 {
+            color: #854d0e;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .speaking-dialogue p {
+            margin-bottom: 6px;
+        }
+
+        .speaking-dialogue strong {
+            color: var(--primary);
+        }
+
+        /* Nav Action Buttons */
+        .nav-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            background: #e2e8f0;
+            color: var(--text);
+        }
+
+        .nav-btn.next {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* FAB Results Button */
+        .fab-results {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0f172a;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--muted);
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .results-table th, .results-table td {
+            border: 1px solid var(--border);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .results-table th {
+            background: #f8fafc;
+        }
+
+        .medal-display {
+            text-align: center;
+            font-size: 3rem;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Way2English — A1-16 Prepositions</h1>
+    </header>
+
+    <div class="stepper-container">
+        <ul class="stepper" id="stepper">
+            <li class="step-btn active" onclick="goToStep(0)">🎬 Watch</li>
+            <li class="step-btn" onclick="goToStep(1)">📚 Слова</li>
+            <li class="step-btn" onclick="goToStep(2)">🎧 Розмова 1</li>
+            <li class="step-btn" onclick="goToStep(3)">🎧 Розмова 2</li>
+            <li class="step-btn" onclick="goToStep(4)">🎧 Розмова 3</li>
+            <li class="step-btn" onclick="goToStep(5)">🎧 Розмова 4</li>
+            <li class="step-btn" onclick="goToStep(6)">🧩 Пазл</li>
+            <li class="step-btn" onclick="goToStep(7)">🎴 Cards</li>
+            <li class="step-btn" onclick="goToStep(8)">🗣️ Speaking</li>
+            <li class="step-btn" onclick="goToStep(9)">🏁 Фініш</li>
+        </ul>
+    </div>
+
+    <div class="main-container">
+        <div class="lesson-step active" id="step-0">
+            <h2>Крок 0: Дивись відео</h2>
+            <div class="video-container">
+                <iframe src="https://player.vimeo.com/video/950580850" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p>У цьому уроці ви прослухаєте та розберете 4 живі діалоги на тему прийменників місця:</p>
+            <ul class="conv-list">
+                <li>Розмова 1: Пошук готелю біля парку</li>
+                <li>Розмова 2: Опис району та проживання біля пляжу</li>
+                <li>Розмова 3: Де розташовані ТЦ, кафе та спортзал</li>
+                <li>Розмова 4: Мовна школа на вулиці A Street</li>
+            </ul>
+        </div>
+
+        <div class="lesson-step" id="step-1">
+            <h2>Крок 1: Словник уроку</h2>
+            <p style="margin-bottom: 15px; color: var(--muted);">Натисніть на динамік 🔊 для прослуховування правильної вимови слова.</p>
+            <div class="vocab-grid" id="vocab-grid"></div>
+        </div>
+
+        <div class="lesson-step" id="step-2">
+            <h2>Крок 2: Розмова 1 — Hotel Location</h2>
+            <div class="media-box">
+                <img src="A1-16-1-Prepositions.jpg" alt="Conversation 1">
+                <audio controls src="A1-16-1-Prepositions.mp3"></audio>
+            </div>
+            <div class="transcript">
+                <p><strong>Man:</strong> Where is the hotel?</p>
+                <p><strong>Woman:</strong> It is downtown. It is near the park.</p>
+                <p><strong>Man:</strong> Is it near the museum?</p>
+                <p><strong>Woman:</strong> Yes, the museum is across from the hotel in the park.</p>
+                <p><strong>Man:</strong> That is a good location.</p>
+                <p><strong>Woman:</strong> Yes, and the mall is nearby too.</p>
+            </div>
+            <div class="quiz-container" id="quiz-1"></div>
+        </div>
+
+        <div class="lesson-step" id="step-3">
+            <h2>Крок 3: Розмова 2 — Living by the Beach</h2>
+            <div class="media-box">
+                <img src="A1-16-2-Prepositions.jpg" alt="Conversation 2">
+                <audio controls src="A1-16-2-Prepositions.mp3"></audio>
+            </div>
+            <div class="transcript">
+                <p><strong>Man:</strong> Where do you live?</p>
+                <p><strong>Woman:</strong> I live in the east side of town.</p>
+                <p><strong>Man:</strong> Are you near the university?</p>
+                <p><strong>Woman:</strong> Yes, it is not far away.</p>
+                <p><strong>Man:</strong> Are you near the beach?</p>
+                <p><strong>Woman:</strong> Yes, I live on the beach actually.</p>
+            </div>
+            <div class="quiz-container" id="quiz-2"></div>
+        </div>
+
+        <div class="lesson-step" id="step-4">
+            <h2>Крок 4: Розмова 3 — Around the Station</h2>
+            <div class="media-box">
+                <img src="A1-16-3-Prepositions.jpg" alt="Conversation 3">
+                <audio controls src="A1-16-3-Prepositions.mp3"></audio>
+            </div>
+            <div class="transcript">
+                <p><strong>Man:</strong> Where is the mall?</p>
+                <p><strong>Woman:</strong> It is next to the train station.</p>
+                <p><strong>Man:</strong> Where is the cafe?</p>
+                <p><strong>Woman:</strong> It is across from the train station.</p>
+                <p><strong>Man:</strong> And where is the nearest gym?</p>
+                <p><strong>Woman:</strong> There is one in the mall on the second floor.</p>
+            </div>
+            <div class="quiz-container" id="quiz-3"></div>
+        </div>
+
+        <div class="lesson-step" id="step-5">
+            <h2>Крок 5: Розмова 4 — Language School</h2>
+            <div class="media-box">
+                <img src="A1-16-4-Prepositions.jpg" alt="Conversation 4">
+                <audio controls src="A1-16-4-Prepositions.mp3"></audio>
+            </div>
+            <div class="transcript">
+                <p><strong>Man:</strong> Does your town have a language school?</p>
+                <p><strong>Woman:</strong> Yes, there is one on A Street.</p>
+                <p><strong>Man:</strong> Where on A Street?</p>
+                <p><strong>Woman:</strong> It is between the bank and the post office.</p>
+                <p><strong>Man:</strong> Oh, that is close.</p>
+                <p><strong>Woman:</strong> Yes, it is only five minutes away.</p>
+            </div>
+            <div class="quiz-container" id="quiz-4"></div>
+        </div>
+
+        <div class="lesson-step" id="step-6">
+            <h2>Крок 6: Інтерактивний Пазл</h2>
+            <p style="margin-bottom: 15px; color: var(--muted);">Оберіть правильний варіант прийменника з випадаючого списку відповідно до аудіозаписів.</p>
+            <div class="puzzle-text" id="puzzle-board"></div>
+        </div>
+
+        <div class="lesson-step" id="step-7">
+            <h2>Крок 7: Картки для запам'ятовування</h2>
+            <div class="flashcard-wrapper">
+                <div class="flashcard" id="flashcard" onclick="flipCard()">
+                    <div class="card-face card-front" id="fc-front">Word</div>
+                    <div class="card-face card-back" id="fc-back">Переклад</div>
+                </div>
+            </div>
+            <div class="fc-controls">
+                <button class="fc-btn" onclick="prevCard()">◀ Назад</button>
+                <button class="fc-btn" onclick="nextCard()">Далі ▶</button>
+            </div>
+        </div>
+
+        <div class="lesson-step" id="step-8">
+            <h2>Крок 8: Практика говоріння (Speaking)</h2>
+            
+            <div class="speaking-box">
+                <h3>Діалог 1 (Робота та інфраструктура)</h3>
+                <div class="speaking-dialogue">
+                    <p><strong>Оля:</strong> Привіт! Де твій новий офіс?</p>
+                    <p><strong>Ігор:</strong> Привіт! Він у центрі міста, поруч із великим парком.</p>
+                    <p><strong>Оля:</strong> О, це чудове місце! Чи є поруч кафе?</p>
+                    <p><strong>Ігор:</strong> Так, затишне кафе розташоване прямо навпроти нашого офісу.</p>
+                </div>
+            </div>
+
+            <div class="speaking-box">
+                <h3>Діалог 2 (Розташування будинку)</h3>
+                <div class="speaking-dialogue">
+                    <p><strong>Максим:</strong> Ти живеш далеко від університету?</p>
+                    <p><strong>Анна:</strong> Ні, зовсім недалеко. Мій будинок розташований біля станції залізничного вокзалу.</p>
+                    <p><strong>Максим:</strong> Зручно! А спортзал є поблизу?</p>
+                    <p><strong>Анна:</strong> Так, великий спортзал знаходиться між банком і аптекою, всього в п'яти хвилинах від мене.</p>
+                </div>
+            </div>
+
+            <div class="speaking-box" style="border-color: #93c5fd; background: #f0f9ff;">
+                <h3>Діалог 3 & 4 (Інтерв'ю)</h3>
+                <p style="font-weight: 600; margin-bottom: 10px; color: #1e40af;">🎤 Студент А перекладає запитання англійською → Студент Б відповідає про себе англійською:</p>
+                <div class="speaking-dialogue">
+                    <p><strong>1. Студент А:</strong> Де ти живеш? (У центрі, на сході міста тощо)</p>
+                    <p><strong>Студент Б:</strong> <em>[Дайте відповідь про себе...]</em></p>
+                    <p style="margin-top: 10px;"><strong>2. Студент А:</strong> Твій будинок знаходиться поруч із пляжем чи парком?</p>
+                    <p><strong>Студент Б:</strong> <em>[Дайте відповідь про себе...]</em></p>
+                    <p style="margin-top: 10px;"><strong>3. Студент А:</strong> Де розташований найближчий магазин чи спортзал від твого дому?</p>
+                    <p><strong>Студент Б:</strong> <em>[Дайте відповідь про себе...]</em></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="lesson-step" id="step-9">
+            <h2>Крок 9: Урок завершено!</h2>
+            <div style="text-align: center; margin: 20px 0;">
+                <h3>Вітаємо! Ви пройшли всі кроки уроку.</h3>
+                <p>Перегляньте фінальну таблицю результатів, натиснувши кнопку нижче або кнопку «📊 Результати» у кутку екрану.</p>
+                <button class="nav-btn next" style="margin-top: 20px; padding: 12px 24px;" onclick="openResultsModal()">Подивитися успішність</button>
+            </div>
+        </div>
+
+        <div class="nav-actions">
+            <button class="nav-btn" id="prev-btn" onclick="changeStep(-1)">Назад</button>
+            <button class="nav-btn next" id="next-btn" onclick="changeStep(1)">Далі</button>
+        </div>
+    </div>
+
+    <button class="fab-results" onclick="openResultsModal()">
+        📊 Результати <span id="fab-score-text">0/16</span>
+    </button>
+
+    <div class="modal-overlay" id="results-modal">
+        <div class="modal">
+            <button class="close-modal" onclick="closeResultsModal()">&times;</button>
+            <h2 style="border: none; padding: 0; text-align: center;">Ваш табель успішності</h2>
+            <div class="medal-display" id="medal-display">💪</div>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Завдання</th>
+                        <th>Бали</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Розмова 1 (Quiz)</td><td id="res-q1">0 / 3</td></tr>
+                    <tr><td>Розмова 2 (Quiz)</td><td id="res-q2">0 / 3</td></tr>
+                    <tr><td>Розмова 3 (Quiz)</td><td id="res-q3">0 / 3</td></tr>
+                    <tr><td>Розмова 4 (Quiz)</td><td id="res-q4">0 / 3</td></tr>
+                    <tr><td>Інтерактивний Пазл</td><td id="res-puzzle">0 / 4</td></tr>
+                    <tr style="font-weight: bold; background: #f1f5f9;">
+                        <td>Загальний підсумок</td>
+                        <td id="res-total">0 / 16 (0%)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="text-align: center; font-size: 0.9rem; color: var(--muted);">Враховуються лише результати тестів та пазлу.</p>
+        </div>
+    </div>
+
+    <script>
+        // Data Definitions
+        const vocabulary = [
+            { en: "downtown", uk: "центр міста (діловий)" },
+            { en: "near", uk: "біля / близько" },
+            { en: "across from", uk: "навпроти" },
+            { en: "near by", uk: "поруч / поблизу" },
+            { en: "east side", uk: "східна сторона міста" },
+            { en: "not far away", uk: "недалеко" },
+            { en: "beach", uk: "пляж" },
+            { en: "next to", uk: "поруч із" },
+            { en: "train station", uk: "залізничний вокзал" },
+            { en: "nearest gym", uk: "найближчий спортзал" },
+            { en: "second floor", uk: "другий поверх" },
+            { en: "language", uk: "мова" },
+            { en: "Street", uk: "вулиця" },
+            { en: "between", uk: "між" },
+            { en: "that is close", uk: "це близько" },
+            { en: "only five minutes away", uk: "всього в 5 хвилинах" }
+        ];
+
+        const quizData = {
+            1: [
+                { q: "Where is the hotel?", o: ["Near the beach", "Downtown", "On the second floor", "Far away"], c: 1 },
+                { q: "What is the hotel near to?", o: ["A train station", "A gym", "A park", "A language school"], c: 2 },
+                { q: "Where is the museum?", o: ["Next to the mall", "Across from the hotel in the park", "On A Street", "On the east side"], c: 1 }
+            ],
+            2: [
+                { q: "Where does the woman live?", o: ["Downtown", "In the east side of town", "Near the train station", "On A Street"], c: 1 },
+                { q: "Is she far from the university?", o: ["Yes, very far", "No, it is not far away", "It is next to it", "On the second floor"], c: 1 },
+                { q: "Where does she actually live?", o: ["In the park", "Near a gym", "On the beach", "Near the museum"], c: 2 }
+            ],
+            3: [
+                { q: "Where is the mall?", o: ["Downtown", "Next to the train station", "Across from the cafe", "Near the beach"], c: 1 },
+                { q: "Where is the cafe?", o: ["In the mall", "On the second floor", "Across from the train station", "On A Street"], c: 2 },
+                { q: "Where is the nearest gym?", o: ["Near the park", "In the mall on the second floor", "On the east side", "Next to the hotel"], c: 1 }
+            ],
+            4: [
+                { q: "Does the town have a language school?", o: ["No, it doesn't", "Yes, there is one on A Street", "Yes, it is near the beach", "It is inside the mall"], c: 1 },
+                { q: "Where exactly on A Street is the school?", o: ["Next to the cafe", "Across from the park", "Between the bank and the post office", "On the second floor"], c: 2 },
+                { q: "How far away is the language school?", o: ["It's far away", "It's only five minutes away", "It's one hour away", "It's near the university"], c: 1 }
+            ]
+        };
+
+        // Scoring Tracker
+        let scores = {
+            q1: 0,
+            q2: 0,
+            q3: 0,
+            q4: 0,
+            puzzle: 0
+        };
+
+        let currentStep = 0;
+        let currentCardIdx = 0;
+
+        // Initialize elements
+        window.addEventListener('DOMContentLoaded', () => {
+            renderVocab();
+            renderAllQuizzes();
+            renderPuzzle();
+            updateFAB();
+        });
+
+        // Step Navigation
+        function goToStep(stepIdx) {
+            document.querySelectorAll('.lesson-step').forEach(step => step.classList.remove('active'));
+            document.querySelectorAll('.step-btn').forEach(btn => btn.classList.remove('active'));
+            
+            currentStep = stepIdx;
+            document.getElementById(`step-${stepIdx}`).classList.add('active');
+            
+            const buttons = document.querySelectorAll('.step-btn');
+            if(buttons[stepIdx]) buttons[stepIdx].classList.add('active');
+
+            // Scroll stepper into view smoothly
+            buttons[stepIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+
+        function changeStep(delta) {
+            let next = currentStep + delta;
+            if(next >= 0 && next <= 9) {
+                goToStep(next);
+            }
+        }
+
+        // Web Speech API Integration
+        function speakWord(word) {
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.lang = 'en-US';
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Render Step 1 Vocab
+        function renderVocab() {
+            const grid = document.getElementById('vocab-grid');
+            vocabulary.forEach(v => {
+                const card = document.createElement('div');
+                card.className = 'vocab-card';
+                card.innerHTML = `
+                    <div class="vocab-info">
+                        <h4>${v.en}</h4>
+                        <p>${v.uk}</p>
+                    </div>
+                    <button class="audio-btn" onclick="speakWord('${v.en.replace(/'/g, "\\'")}')">🔊</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render Quizzes (Steps 2-5)
+        function renderAllQuizzes() {
+            [1, 2, 3, 4].forEach(id => {
+                const container = document.getElementById(`quiz-${id}`);
+                container.innerHTML = `<h3>Перевірка розуміння (Quiz)</h3>`;
+                
+                quizData[id].forEach((qObj, qIdx) => {
+                    const block = document.createElement('div');
+                    block.className = 'question-block';
+                    block.innerHTML = `<div class="question-text">${qIdx + 1}. ${qObj.q}</div>`;
+                    
+                    const optionsList = document.createElement('div');
+                    optionsList.className = 'options-list';
+                    
+                    qObj.o.forEach((opt, oIdx) => {
+                        const btn = document.createElement('button');
+                        btn.className = 'option-btn';
+                        btn.innerText = opt;
+                        btn.onclick = () => checkQuizAnswer(id, qIdx, oIdx, btn, optionsList);
+                        optionsList.appendChild(btn);
+                    });
+                    
+                    block.appendChild(optionsList);
+                    container.appendChild(block);
+                });
+            });
+        }
+
+        let quizUserAnswers = { 1: {}, 2: {}, 3: {}, 4: {} };
+
+        function checkQuizAnswer(quizId, qIdx, oIdx, selectedBtn, optionsList) {
+            const correctAnswer = quizData[quizId][qIdx].c;
+            
+            // Highlight answers immediately
+            const buttons = optionsList.querySelectorAll('.option-btn');
+            buttons.forEach((b, index) => {
+                b.disabled = true; // disable further clicks
+                if(index === correctAnswer) {
+                    b.classList.add('selected-correct');
+                }
+            });
+
+            if (oIdx !== correctAnswer) {
+                selectedBtn.classList.add('selected-incorrect');
+            }
+
+            // Save user choice
+            quizUserAnswers[quizId][qIdx] = (oIdx === correctAnswer) ? 1 : 0;
+
+            // Recalculate complete scores for this quiz section (Last attempt scoring logic)
+            let quizCorrectCount = 0;
+            for(let i=0; i<3; i++) {
+                if(quizUserAnswers[quizId][i] === 1) quizCorrectCount++;
+            }
+            
+            scores[`q${quizId}`] = quizCorrectCount;
+            updateFAB();
+        }
+
+        // Render Interactive Puzzle Cloze Board (Step 6)
+        function renderPuzzle() {
+            const board = document.getElementById('puzzle-board');
+            // Simplified Cloze text mapping for Puzzle structure based on original PDF content
+            board.innerHTML = `
+                <p><strong>Conversation 1</strong><br>
+                Man: <select class="puzzle-select" data-ans="Where" onchange="checkPuzzle()"><option value="">...</option><option value="Where">Where</option><option value="Is">Is</option></select> is the hotel?<br>
+                Woman: It is downtown. It is <select class="puzzle-select" data-ans="near" onchange="checkPuzzle()"><option value="">...</option><option value="near">near</option><option value="across">across</option></select> the park.</p>
+                <br>
+                <p><strong>Conversation 3</strong><br>
+                Man: Where is the mall?<br>
+                Woman: It is <select class="puzzle-select" data-ans="next" onchange="checkPuzzle()"><option value="">...</option><option value="next">next</option><option value="across">across</option></select> to the train station.<br>
+                Man: And where is the nearest gym?<br>
+                Woman: There is one in the mall <select class="puzzle-select" data-ans="on" onchange="checkPuzzle()"><option value="">...</option><option value="on">on</option><option value="in">in</option></select> the second floor.</p>
+            `;
+        }
+
+        function checkPuzzle() {
+            const selects = document.querySelectorAll('.puzzle-select');
+            let correct = 0;
+            selects.forEach(s => {
+                if(s.value === s.getAttribute('data-ans')) {
+                    s.classList.add('correct');
+                    correct++;
+                } else {
+                    s.classList.remove('correct');
+                }
+            });
+            scores.puzzle = correct;
+            updateFAB();
+        }
+
+        // Flashcards Control (Step 7)
+        function updateCard() {
+            const card = document.getElementById('flashcard');
+            card.classList.remove('flipped');
+            setTimeout(() => {
+                document.getElementById('fc-front').innerText = vocabulary[currentCardIdx].en;
+                document.getElementById('fc-back').innerText = vocabulary[currentCardIdx].uk;
+            }, 150);
+        }
+
+        function flipCard() {
+            document.getElementById('flashcard').classList.toggle('flipped');
+        }
+
+        function nextCard() {
+            currentCardIdx = (currentCardIdx + 1) % vocabulary.length;
+            updateCard();
+        }
+
+        function prevCard() {
+            currentCardIdx = (currentCardIdx - 1 + vocabulary.length) % vocabulary.length;
+            updateCard();
+        }
+
+        // Results Scoring Update Core System
+        function updateFAB() {
+            const total = scores.q1 + scores.q2 + scores.q3 + scores.q4 + scores.puzzle;
+            document.getElementById('fab-score-text').innerText = `${total} / 16`;
+            
+            // Sync with Modal Table items
+            document.getElementById('res-q1').innerText = `${scores.q1} / 3`;
+            document.getElementById('res-q2').innerText = `${scores.q2} / 3`;
+            document.getElementById('res-q3').innerText = `${scores.q3} / 3`;
+            document.getElementById('res-q4').innerText = `${scores.q4} / 3`;
+            document.getElementById('res-puzzle').innerText = `${scores.puzzle} / 4`;
+            
+            const pct = Math.round((total / 16) * 100);
+            document.getElementById('res-total').innerText = `${total} / 16 (${pct}%)`;
+            
+            // Medals processing rule
+            let medal = "💪";
+            if(pct >= 90) medal = "🏆";
+            else if(pct >= 70) medal = "🌟";
+            else if(pct >= 50) medal = "👍";
+            
+            document.getElementById('medal-display').innerText = medal;
+        }
+
+        function openResultsModal() {
+            document.getElementById('results-modal').classList.add('open');
+        }
+
+        function closeResultsModal() {
+            document.getElementById('results-modal').classList.remove('open');
+        }
+    </script>
+</body>
+</html>
