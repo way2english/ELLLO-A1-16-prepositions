@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Way2English — Interactive Lesson</title>
+    <title>Way2English — Prepositions Lesson</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -101,7 +101,7 @@
             box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
         }
 
-        /* Content Main Container */
+        /* Content Container */
         .main-container {
             max-width: 760px;
             margin: 24px auto;
@@ -137,7 +137,7 @@
             gap: 10px;
         }
 
-        /* Video Step Layout */
+        /* Video Container */
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -146,7 +146,6 @@
             border-radius: 12px;
             background: #000;
             margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .video-container iframe {
@@ -169,7 +168,7 @@
             font-weight: 500;
         }
 
-        /* Vocab Grid Layout */
+        /* Vocab Grid */
         .vocab-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -184,12 +183,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.2s;
-        }
-        .vocab-card:hover {
-            border-color: #cbd5e1;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
 
         .vocab-info h4 {
@@ -201,7 +194,7 @@
         .vocab-info p {
             font-size: 0.9rem;
             color: var(--muted);
-            margin-top: 20px;
+            margin-top: 4px;
         }
 
         .audio-btn {
@@ -216,14 +209,13 @@
             align-items: center;
             justify-content: center;
             font-size: 1.1rem;
-            transition: all 0.2s;
         }
         .audio-btn:hover {
             background: var(--primary);
             color: white;
         }
 
-        /* Conversation Listening Section */
+        /* Media Box */
         .media-box {
             display: flex;
             flex-direction: column;
@@ -236,7 +228,6 @@
             max-height: 320px;
             object-fit: cover;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
 
         audio {
@@ -244,12 +235,7 @@
             border-radius: 8px;
         }
 
-        /* Quiz UI Design */
-        .quiz-container {
-            margin-top: 25px;
-            padding-top: 20px;
-        }
-
+        /* Quiz Components */
         .question-block {
             background: #f8fafc;
             padding: 20px;
@@ -286,7 +272,6 @@
 
         .option-btn:hover:not(:disabled) {
             background: #f1f5f9;
-            border-color: #cbd5e1;
         }
 
         .option-btn.selected-correct {
@@ -303,7 +288,7 @@
             font-weight: 700;
         }
 
-        /* Reading Section Design */
+        /* Reading Section */
         .reading-box {
             background: #ffffff;
             border: 1px solid var(--border);
@@ -325,10 +310,10 @@
         .dialogue-text strong {
             color: #475569;
             display: inline-block;
-            width: 70px;
+            width: 75px;
         }
 
-        /* Puzzle Section UI (All 4 with matching audio layout) */
+        /* Puzzle Section */
         .puzzle-section {
             background: #f8fafc;
             border: 1px solid var(--border);
@@ -342,13 +327,13 @@
             color: #334155;
         }
         .puzzle-text {
-            line-height: 2.3;
+            line-height: 2.5;
             font-size: 1.05rem;
             margin-top: 15px;
             color: #1e293b;
         }
         .puzzle-select {
-            padding: 4px 10px;
+            padding: 4px 8px;
             font-size: 0.95rem;
             border: 2px solid #cbd5e1;
             border-radius: 6px;
@@ -356,11 +341,6 @@
             font-weight: 700;
             color: var(--primary);
             cursor: pointer;
-            transition: all 0.2s;
-        }
-        .puzzle-select:focus {
-            outline: none;
-            border-color: var(--primary);
         }
         .puzzle-select.correct {
             border-color: var(--success) !important;
@@ -368,95 +348,70 @@
             color: #065f46 !important;
         }
 
-        /* Premium Flashcards Custom CSS */
-        .flashcard-wrapper {
-            perspective: 1000px;
-            width: 100%;
-            max-width: 380px;
-            height: 240px;
-            margin: 30px auto;
+        /* Flashcards Grid Layout (All Together) */
+        .cards-action-bar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
         }
-
-        .flashcard {
+        .flip-all-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+            transition: all 0.2s;
+        }
+        .flip-all-btn:hover {
+            background: var(--primary-hover);
+        }
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
+        }
+        .flashcard-cell {
+            perspective: 1000px;
+            height: 120px;
+            cursor: pointer;
+        }
+        .mini-card {
             width: 100%;
             height: 100%;
             position: relative;
             transform-style: preserve-3d;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
+            transition: transform 0.4s;
         }
-
-        .flashcard.flipped {
+        .mini-card.flipped {
             transform: rotateY(180deg);
         }
-
-        .card-face {
+        .mini-face {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            border-radius: 20px;
+            border-radius: 12px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 24px;
+            padding: 10px;
             text-align: center;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08);
+            font-size: 0.95rem;
+            font-weight: 700;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
-
-        .card-front {
+        .mini-front {
             background: linear-gradient(135deg, #4f46e5, #6366f1);
             color: white;
         }
-        .card-front .hint-text {
-            font-size: 0.8rem;
-            background: rgba(255,255,255,0.2);
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-top: 15px;
-            font-weight: 500;
-        }
-
-        .card-back {
+        .mini-back {
             background: #ffffff;
             color: var(--text);
-            border: 3px solid var(--primary);
+            border: 2px solid var(--primary);
             transform: rotateY(180deg);
-        }
-
-        .card-face h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
-        }
-
-        .fc-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .fc-btn {
-            padding: 10px 20px;
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            color: #475569;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            transition: all 0.2s;
-        }
-        .fc-btn:hover {
-            background: #f1f5f9;
-            border-color: #cbd5e1;
-        }
-        .fc-counter {
-            font-weight: 700;
-            color: var(--muted);
-            font-size: 0.9rem;
         }
 
         /* Speaking Section Design Layout */
@@ -465,7 +420,7 @@
             border: 1px solid #fef08a;
             padding: 16px;
             border-radius: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #854d0e;
             font-weight: 600;
             font-size: 0.95rem;
@@ -473,35 +428,33 @@
         .speaking-box {
             background: #ffffff;
             border: 1px solid var(--border);
-            padding: 20px;
+            padding: 22px;
             border-radius: 12px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.01);
         }
         .speaking-box h3 {
-            font-size: 1.05rem;
-            color: #1e293b;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 14px;
+            border-left: 4px solid var(--accent);
+            padding-left: 8px;
         }
         .speaking-dialogue p {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 1.05rem;
         }
         .speaking-dialogue strong {
             color: var(--primary);
             display: inline-block;
-            width: 85px;
+            width: 95px;
         }
-        .blank-field {
+        .interview-blank {
             display: inline-block;
-            width: 180px;
-            border-bottom: 2px dashed #94a3b8;
-            margin-left: 4px;
-            height: 18px;
-            vertical-align: middle;
+            color: var(--muted);
+            font-style: italic;
+            border-bottom: 2px dashed #cbd5e1;
+            padding-right: 10px;
         }
 
         /* Action Buttons */
@@ -552,15 +505,10 @@
             align-items: center;
             gap: 8px;
             z-index: 1000;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 0.95rem;
         }
-        .fab-results:hover {
-            transform: scale(1.03);
-            background: #1e293b;
-        }
 
-        /* Modal Score Overlay System */
+        /* Modal Overlay System */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -587,12 +535,6 @@
             width: 90%;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             position: relative;
-            animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        @keyframes modalIn {
-            from { transform: scale(0.9) translateY(20px); opacity: 0; }
-            to { transform: scale(1) translateY(0); opacity: 1; }
         }
 
         .close-modal {
@@ -604,7 +546,6 @@
             background: none;
             border: none;
             color: var(--muted);
-            line-height: 1;
         }
 
         .results-table {
@@ -657,7 +598,6 @@
             <li class="step-btn" onclick="goToStep(7)">🧩 Пазл</li>
             <li class="step-btn" onclick="goToStep(8)">🎴 Картки</li>
             <li class="step-btn" onclick="goToStep(9)">🗣️ Говоримо</li>
-            <li class="step-btn" onclick="goToStep(10)">🏁 Фініш</li>
         </ul>
     </div>
 
@@ -719,7 +659,7 @@
 
         <div class="lesson-step" id="step-6">
             <h2>Читання текстових скриптів</h2>
-            <p style="color: var(--muted); margin-bottom: 20px;">Прочитайте тексти розмов та зверніть увагу на використання прийменників.</p>
+            <p style="color: var(--muted); margin-bottom: 20px;">Прочитайте тексти розмов та зверніть увагу на використання прийменників місця.</p>
             
             <div class="reading-box">
                 <h3>Розмова 1</h3>
@@ -772,18 +712,18 @@
 
         <div class="lesson-step" id="step-7">
             <h2>Інтерактивний Пазл</h2>
-            <p style="color: var(--muted); margin-bottom: 20px;">Слухайте відповідні треки та заповнюйте пропуски правильними словами.</p>
+            <p style="color: var(--muted); margin-bottom: 20px;">Слухайте відповідні аудіозаписи та обирайте правильні прийменники та слова з повного випадаючого списку розмови.</p>
             
             <div class="puzzle-section">
                 <h3>Розмова 1</h3>
                 <audio controls src="A1-16-1-Prepositions.mp3" style="margin-bottom: 10px;"></audio>
                 <div class="puzzle-text">
-                    Man: <select class="puzzle-select" data-ans="Where" onchange="checkPuzzle()"><option value="">...</option><option value="Where">Where</option><option value="Is">Is</option></select> is the hotel?<br>
-                    Woman: It is <select class="puzzle-select" data-ans="downtown" onchange="checkPuzzle()"><option value="">...</option><option value="downtown">downtown</option><option value="good">good</option></select>. It is <select class="puzzle-select" data-ans="near" onchange="checkPuzzle()"><option value="">...</option><option value="near">near</option><option value="nearby">nearby</option></select> the park.<br>
-                    Man: <select class="puzzle-select" data-ans="Is" onchange="checkPuzzle()"><option value="">...</option><option value="Is">Is</option><option value="Where">Where</option></select> it near the museum?<br>
-                    Woman: Yes, the museum is <select class="puzzle-select" data-ans="across" onchange="checkPuzzle()"><option value="">...</option><option value="across">across</option><option value="in">in</option></select> from the hotel <select class="puzzle-select" data-ans="in" onchange="checkPuzzle()"><option value="">...</option><option value="in">in</option><option value="near">near</option></select> the park.<br>
-                    Man: That is a <select class="puzzle-select" data-ans="good" onchange="checkPuzzle()"><option value="">...</option><option value="good">good</option><option value="downtown">downtown</option></select> location.<br>
-                    Woman: Yes, and the mall is <select class="puzzle-select" data-ans="nearby" onchange="checkPuzzle()"><option value="">...</option><option value="nearby">nearby</option><option value="across">across</option></select> too.
+                    Man: <select class="puzzle-select" data-ans="Where" data-bank="1" onchange="checkPuzzle()"><option value="">...</option></select> is the hotel?<br>
+                    Woman: It is <select class="puzzle-select" data-ans="downtown" data-bank="1" onchange="checkPuzzle()"><option value="">...</option></select>. It is <select class="puzzle-select" data-ans="near" data-bank="1" onchange="checkPuzzle()"><option value="">...</option></select> the park.<br>
+                    Man: <select class="puzzle-select" data-ans="Is" data-bank="1" onchange="checkPuzzle()"><option value="">...</option></select> it near the museum?<br>
+                    Woman: Yes, the museum is <select class="puzzle-select" data-ans="across" data-bank="1" onchange="checkPuzzle()"><option value="">...</option></select> from the hotel <select class="puzzle-select" data-ans="in" data-bank="1" onchange="checkPuzzle()"><option value="">...</option></select> the park.<br>
+                    Man: That is a <select class="puzzle-select" data-ans="good" data-bank="1" onchange="checkPuzzle()"><option value="">...</option></select> location.<br>
+                    Woman: Yes, and the mall is <select class="puzzle-select" data-ans="nearby" data-bank="1" onchange="checkPuzzle()"><option value="">...</option></select> too.
                 </div>
             </div>
 
@@ -791,12 +731,12 @@
                 <h3>Розмова 2</h3>
                 <audio controls src="A1-16-2-Prepositions.mp3" style="margin-bottom: 10px;"></audio>
                 <div class="puzzle-text">
-                    Man: Where do you <select class="puzzle-select" data-ans="live" onchange="checkPuzzle()"><option value="">...</option><option value="live">live</option><option value="near">near</option></select>?<br>
-                    Woman: I live <select class="puzzle-select" data-ans="in" onchange="checkPuzzle()"><option value="">...</option><option value="in">in</option><option value="on">on</option></select> the <select class="puzzle-select" data-ans="east" onchange="checkPuzzle()"><option value="">...</option><option value="east">east</option><option value="beach">beach</option></select> side of town.<br>
-                    Man: Are you <select class="puzzle-select" data-ans="near" onchange="checkPuzzle()"><option value="">...</option><option value="near">near</option><option value="far">far</option></select> the university?<br>
-                    Woman: Yes, it is not <select class="puzzle-select" data-ans="far" onchange="checkPuzzle()"><option value="">...</option><option value="far">far</option><option value="live">live</option></select> away.<br>
-                    Man: Are you near the <select class="puzzle-select" data-ans="beach" onchange="checkPuzzle()"><option value="">...</option><option value="beach">beach</option><option value="east">east</option></select>?<br>
-                    Woman: Yes, I live <select class="puzzle-select" data-ans="on" onchange="checkPuzzle()"><option value="">...</option><option value="on">on</option><option value="actually">actually</option></select> the beach <select class="puzzle-select" data-ans="actually" onchange="checkPuzzle()"><option value="">...</option><option value="actually">actually</option><option value="in">in</option></select>.
+                    Man: Where do you <select class="puzzle-select" data-ans="live" data-bank="2" onchange="checkPuzzle()"><option value="">...</option></select>?<br>
+                    Woman: I live <select class="puzzle-select" data-ans="in" data-bank="2" onchange="checkPuzzle()"><option value="">...</option></select> the <select class="puzzle-select" data-ans="east" data-bank="2" onchange="checkPuzzle()"><option value="">...</option></select> side of town.<br>
+                    Man: Are you <select class="puzzle-select" data-ans="near" data-bank="2" onchange="checkPuzzle()"><option value="">...</option></select> the university?<br>
+                    Woman: Yes, it is not <select class="puzzle-select" data-ans="far" data-bank="2" onchange="checkPuzzle()"><option value="">...</option></select> away.<br>
+                    Man: Are you near the <select class="puzzle-select" data-ans="beach" data-bank="2" onchange="checkPuzzle()"><option value="">...</option></select>?<br>
+                    Woman: Yes, I live <select class="puzzle-select" data-ans="on" data-bank="2" onchange="checkPuzzle()"><option value="">...</option></select> the beach <select class="puzzle-select" data-ans="actually" data-bank="2" onchange="checkPuzzle()"><option value="">...</option></select>.
                 </div>
             </div>
 
@@ -804,12 +744,12 @@
                 <h3>Розмова 3</h3>
                 <audio controls src="A1-16-3-Prepositions.mp3" style="margin-bottom: 10px;"></audio>
                 <div class="puzzle-text">
-                    Man: Where is the <select class="puzzle-select" data-ans="mall" onchange="checkPuzzle()"><option value="">...</option><option value="mall">mall</option><option value="station">station</option></select>?<br>
-                    Woman: It is <select class="puzzle-select" data-ans="next" onchange="checkPuzzle()"><option value="">...</option><option value="next">next</option><option value="across">across</option></select> to the train <select class="puzzle-select" data-ans="station" onchange="checkPuzzle()"><option value="">...</option><option value="station">station</option><option value="floor">floor</option></select>.<br>
+                    Man: Where is the <select class="puzzle-select" data-ans="mall" data-bank="3" onchange="checkPuzzle()"><option value="">...</option></select>?<br>
+                    Woman: It is <select class="puzzle-select" data-ans="next" data-bank="3" onchange="checkPuzzle()"><option value="">...</option></select> to the train <select class="puzzle-select" data-ans="station" data-bank="3" onchange="checkPuzzle()"><option value="">...</option></select>.<br>
                     Man: Where is the cafe?<br>
-                    Woman: It is <select class="puzzle-select" data-ans="across" onchange="checkPuzzle()"><option value="">...</option><option value="across">across</option><option value="next">next</option></select> from the train station.<br>
-                    Man: And where is the <select class="puzzle-select" data-ans="nearest" onchange="checkPuzzle()"><option value="">...</option><option value="nearest">nearest</option><option value="mall">mall</option></select> gym?<br>
-                    Woman: There is one <select class="puzzle-select" data-ans="in" onchange="checkPuzzle()"><option value="">...</option><option value="in">in</option><option value="on">on</option></select> the mall <select class="puzzle-select" data-ans="on" onchange="checkPuzzle()"><option value="">...</option><option value="on">on</option><option value="in">in</option></select> the second <select class="puzzle-select" data-ans="floor" onchange="checkPuzzle()"><option value="">...</option><option value="floor">floor</option><option value="station">station</option></select>.
+                    Woman: It is <select class="puzzle-select" data-ans="across" data-bank="3" onchange="checkPuzzle()"><option value="">...</option></select> from the train station.<br>
+                    Man: And where is the <select class="puzzle-select" data-ans="nearest" data-bank="3" onchange="checkPuzzle()"><option value="">...</option></select> gym?<br>
+                    Woman: There is one <select class="puzzle-select" data-ans="in" data-bank="3" onchange="checkPuzzle()"><option value="">...</option></select> the mall <select class="puzzle-select" data-ans="on" data-bank="3" onchange="checkPuzzle()"><option value="">...</option></select> the second <select class="puzzle-select" data-ans="floor" data-bank="3" onchange="checkPuzzle()"><option value="">...</option></select>.
                 </div>
             </div>
 
@@ -817,85 +757,68 @@
                 <h3>Розмова 4</h3>
                 <audio controls src="A1-16-4-Prepositions.mp3" style="margin-bottom: 10px;"></audio>
                 <div class="puzzle-text">
-                    Man: <select class="puzzle-select" data-ans="Does" onchange="checkPuzzle()"><option value="">...</option><option value="Does">Does</option><option value="Where">Where</option></select> your town have a language <select class="puzzle-select" data-ans="school" onchange="checkPuzzle()"><option value="">...</option><option value="school">school</option><option value="office">office</option></select>?<br>
-                    Woman: Yes, <select class="puzzle-select" data-ans="there" onchange="checkPuzzle()"><option value="">...</option><option value="there">there</option><option value="between">between</option></select> is one on A Street.<br>
-                    Man: <select class="puzzle-select" data-ans="Where" onchange="checkPuzzle()"><option value="">...</option><option value="Where">Where</option><option value="Does">Does</option></select> on A Street?<br>
-                    Woman: It is <select class="puzzle-select" data-ans="between" onchange="checkPuzzle()"><option value="">...</option><option value="between">between</option><option value="there">there</option></select> the bank and the post <select class="puzzle-select" data-ans="office" onchange="checkPuzzle()"><option value="">...</option><option value="office">office</option><option value="school">school</option></select>.<br>
-                    Man: Oh, that is <select class="puzzle-select" data-ans="close" onchange="checkPuzzle()"><option value="">...</option><option value="close">close</option><option value="away">away</option></select>.<br>
-                    Woman: Yes, it is only five minutes <select class="puzzle-select" data-ans="away" onchange="checkPuzzle()"><option value="">...</option><option value="away">away</option><option value="close">close</option></select>.
+                    Man: <select class="puzzle-select" data-ans="Does" data-bank="4" onchange="checkPuzzle()"><option value="">...</option></select> your town have a language <select class="puzzle-select" data-ans="school" data-bank="4" onchange="checkPuzzle()"><option value="">...</option></select>?<br>
+                    Woman: Yes, <select class="puzzle-select" data-ans="there" data-bank="4" onchange="checkPuzzle()"><option value="">...</option></select> is one on A Street.<br>
+                    Man: <select class="puzzle-select" data-ans="Where" data-bank="4" onchange="checkPuzzle()"><option value="">...</option></select> on A Street?<br>
+                    Woman: It is <select class="puzzle-select" data-ans="between" data-bank="4" onchange="checkPuzzle()"><option value="">...</option></select> the bank and the post <select class="puzzle-select" data-ans="office" data-bank="4" onchange="checkPuzzle()"><option value="">...</option></select>.<br>
+                    Man: Oh, that is <select class="puzzle-select" data-ans="close" data-bank="4" onchange="checkPuzzle()"><option value="">...</option></select>.<br>
+                    Woman: Yes, it is only five minutes <select class="puzzle-select" data-ans="away" data-bank="4" onchange="checkPuzzle()"><option value="">...</option></select>.
                 </div>
             </div>
         </div>
 
         <div class="lesson-step" id="step-8">
             <h2>Картки</h2>
-            <p style="color: var(--muted); text-align: center;">Клацніть на картку, щоб побачити переклад українською.</p>
-            <div class="flashcard-wrapper">
-                <div class="flashcard" id="flashcard" onclick="flipCard()">
-                    <div class="card-face card-front">
-                        <h3 id="fc-front">Word</h3>
-                        <div class="hint-text">Перевернути 🔄</div>
-                    </div>
-                    <div class="card-face card-back">
-                        <h3 id="fc-back">Переклад</h3>
-                    </div>
-                </div>
+            <div class="cards-action-bar">
+                <button class="flip-all-btn" onclick="flipAllCards()">🔄 Перевернути всі</button>
             </div>
-            <div class="fc-controls">
-                <button class="fc-btn" onclick="prevCard()">◀ Назад</button>
-                <div class="fc-counter" id="fc-count">1 / 16</div>
-                <button class="fc-btn" onclick="nextCard()">Далі ▶</button>
-            </div>
+            <div class="flashcards-grid" id="flashcards-grid"></div>
         </div>
 
         <div class="lesson-step" id="step-9">
             <h2>Говоримо</h2>
             <div class="speaking-instruction">
-                🎤 Студент А перекладає запитання або репліку англійською → Студент Б відповідає про себе (заповнює пропуски):
+                💬 Практика спілкування в парах. Прочитайте адаптовані діалоги українською мовою, а потім виконайте завдання-інтерв'ю.
             </div>
 
             <div class="speaking-box">
-                <h3>Діалог 1</h3>
+                <h3>Діалог 1 (Адаптований аналог)</h3>
                 <div class="speaking-dialogue">
-                    <p><strong>Студент А:</strong> Де знаходиться готель?</p>
-                    <p><strong>Студент Б:</strong> It is downtown. It is near <span class="blank-field"></span>.</p>
-                    <p style="margin-top: 10px;"><strong>Студент А:</strong> Чи він розташований навпроти музею?</p>
-                    <p><strong>Студент Б:</strong> Yes, it is across from <span class="blank-field"></span>.</p>
+                    <p><strong>Студент А:</strong> Де розташований твій новий офіс?</p>
+                    <p><strong>Студент Б:</strong> Він у центрі міста. Він знаходиться поруч із центральним парком.</p>
+                    <p><strong>Студент А:</strong> Це дуже зручне місце. Чи є поруч кафе чи ресторани?</p>
+                    <p><strong>Студент Б:</strong> Так, гарне кафе розташоване прямо навпроти нашого офісу, а торговий центр теж поблизу.</p>
                 </div>
             </div>
 
             <div class="speaking-box">
-                <h3>Діалог 2</h3>
+                <h3>Діалог 2 (Адаптований аналог)</h3>
                 <div class="speaking-dialogue">
-                    <p><strong>Студент А:</strong> Де ти живеш?</p>
-                    <p><strong>Студент Б:</strong> I live in <span class="blank-field"></span>.</p>
-                    <p style="margin-top: 10px;"><strong>Студент А:</strong> Чи твій будинок розташований далеко від пляжу?</p>
-                    <p><strong>Студент Б:</strong> No, it is not far. I live near <span class="blank-field"></span>.</p>
+                    <p><strong>Студент А:</strong> Де ти зараз живеш?</p>
+                    <p><strong>Студент Б:</strong> Я живу на східній стороні нашого міста.</p>
+                    <p><strong>Студент А:</strong> Чи твій будинок знаходиться поруч із університетом?</p>
+                    <p><strong>Студент Б:</strong> Так, університет зовсім недалеко від мене. А ще мій будинок розташований прямо біля парку.</p>
                 </div>
             </div>
 
-            <div class="speaking-box">
-                <h3>Діалог 3</h3>
+            <div class="speaking-box" style="border-color: #93c5fd; background: #f0f9ff;">
+                <h3>Діалог 3 (Інтерв'ю — Студент Б відповідає про себе)</h3>
                 <div class="speaking-dialogue">
-                    <p><strong>Студент А:</strong> Де знаходиться найближчий спортзал?</p>
-                    <p><strong>Студент Б:</strong> It is next to <span class="blank-field"></span> on the second floor.</p>
+                    <p><strong>Студент А (перекладає англійською):</strong> Де знаходиться найближчий магазин або супермаркет?</p>
+                    <p><strong>Студент Б (відповідає англійською про себе):</strong> It is next to <span class="interview-blank">[назва місця про себе...]</span>.</p>
+                    <p style="margin-top: 10px;"><strong>Студент А (перекладає англійською):</strong> Де розташований найближчий спортзал у твоєму районі?</p>
+                    <p><strong>Студент Б (відповідає англійською про себе):</strong> There is one on the <span class="interview-blank">[якому?]</span> floor inside the mall.</p>
                 </div>
             </div>
 
-            <div class="speaking-box">
-                <h3>Діалог 4</h3>
+            <div class="speaking-box" style="border-color: #93c5fd; background: #f0f9ff;">
+                <h3>Діалог 4 (Інтерв'ю — Студент Б відповідає про себе)</h3>
                 <div class="speaking-dialogue">
-                    <p><strong>Студент А:</strong> Чи є в твоєму місті мовна школа?</p>
-                    <p><strong>Студент Б:</strong> Yes, there is one. It is between <span class="blank-field"></span> and <span class="blank-field"></span>.</p>
+                    <p><strong>Студент А (перекладає англійською):</strong> Чи є у твоєму місті велика мовна школа?</p>
+                    <p><strong>Студент Б (відповідає англійською про себе):</strong> Yes, there is one. It is on <span class="interview-blank">[назва вулиці...]</span>.</p>
+                    <p style="margin-top: 10px;"><strong>Студент А (перекладає англійською):</strong> Де саме вона розташована?</p>
+                    <p><strong>Студент Б (відповідає англійською про себе):</strong> It is between the bank and the <span class="interview-blank">[чимось ще...]</span>. It is only five minutes away.</p>
                 </div>
-            </div>
-        </div>
-
-        <div class="lesson-step" id="step-10">
-            <h2>Урок завершено успішно!</h2>
-            <div style="text-align: center; padding: 20px 0;">
-                <p style="font-size: 1.1rem; margin-bottom: 20px;">Чудова робота! Ви пройшли всі інтерактивні етапи цього уроку.</p>
-                <button class="nav-btn next" style="padding: 14px 28px;" onclick="openResultsModal()">📊 Відкрити підсумковий табель</button>
             </div>
         </div>
 
@@ -912,7 +835,7 @@
     <div class="modal-overlay" id="results-modal">
         <div class="modal">
             <button class="close-modal" onclick="closeResultsModal()">&times;</button>
-            <h2 style="justify-content: center; margin-bottom: 10px;">Результати уроку</h2>
+            <h2 style="justify-content: center; margin-bottom: 10px; border:none;">Результати уроку</h2>
             <div class="medal-display" id="medal-display">💪</div>
             <table class="results-table">
                 <thead>
@@ -926,14 +849,14 @@
                     <tr><td>Розмова 2 (Квіз)</td><td id="res-q2">0 / 3</td></tr>
                     <tr><td>Розмова 3 (Квіз)</td><td id="res-q3">0 / 3</td></tr>
                     <tr><td>Розмова 4 (Квіз)</td><td id="res-q4">0 / 3</td></tr>
-                    <tr><td>Інтерактивний Пазл (Усі 4 треки)</td><td id="res-puzzle">0 / 32</td></tr>
+                    <tr><td>Інтерактивний Пазл (32 пропуски)</td><td id="res-puzzle">0 / 32</td></tr>
                     <tr style="font-weight: 800; background: #eef2ff; color: var(--primary);">
                         <td>Загальний підсумок</td>
                         <td id="res-total">0 / 44 (0%)</td>
                     </tr>
                 </tbody>
             </table>
-            <p style="text-align: center; font-size: 0.85rem; color: var(--muted);">Система враховує лише квізи та пазли.</p>
+            <p style="text-align: center; font-size: 0.85rem; color: var(--muted);">Враховуються лише квізи та пропуски в пазлі.</p>
         </div>
     </div>
 
@@ -956,6 +879,13 @@
             { en: "that is close", uk: "це близько" },
             { en: "only five minutes away", uk: "всього в 5 хвилинах" }
         ];
+
+        const wordBanks = {
+            1: ["nearby", "good", "Where", "in", "Is", "across", "downtown", "near"],
+            2: ["east", "in", "beach", "live", "on", "actually", "near", "far"],
+            3: ["across", "station", "in", "floor", "mall", "nearest", "next", "on"],
+            4: ["Where", "there", "office", "between", "Does", "away", "school", "close"]
+        };
 
         const quizData = {
             1: [
@@ -983,11 +913,13 @@
         let scores = { q1: 0, q2: 0, q3: 0, q4: 0, puzzle: 0 };
         let quizUserAnswers = { 1: {}, 2: {}, 3: {}, 4: {} };
         let currentStep = 0;
-        let currentCardIdx = 0;
+        let globalFlippedState = false;
 
         window.addEventListener('DOMContentLoaded', () => {
             renderVocab();
             renderAllQuizzes();
+            populatePuzzleOptions();
+            renderFlashcardsGrid();
             updateFAB();
         });
 
@@ -1005,8 +937,10 @@
 
         function changeStep(delta) {
             let next = currentStep + delta;
-            if(next >= 0 && next <= 10) {
+            if(next >= 0 && next <= 9) {
                 goToStep(next);
+            } else if (next > 9) {
+                openResultsModal();
             }
         }
 
@@ -1030,7 +964,6 @@
                 `;
                 grid.appendChild(card);
             });
-            updateCard();
         }
 
         function renderAllQuizzes() {
@@ -1086,6 +1019,23 @@
             updateFAB();
         }
 
+        function populatePuzzleOptions() {
+            const selects = document.querySelectorAll('.puzzle-select');
+            selects.forEach(select => {
+                const bankId = select.getAttribute('data-bank');
+                const words = wordBanks[bankId];
+                // Sort words alphabetically for cleaner look in the dropdown selector
+                const sortedWords = [...words].sort();
+                
+                sortedWords.forEach(word => {
+                    const opt = document.createElement('option');
+                    opt.value = word;
+                    opt.innerText = word;
+                    select.appendChild(opt);
+                });
+            });
+        }
+
         function checkPuzzle() {
             const selects = document.querySelectorAll('.puzzle-select');
             let correct = 0;
@@ -1101,28 +1051,36 @@
             updateFAB();
         }
 
-        function updateCard() {
-            const card = document.getElementById('flashcard');
-            card.classList.remove('flipped');
-            setTimeout(() => {
-                document.getElementById('fc-front').innerText = vocabulary[currentCardIdx].en;
-                document.getElementById('fc-back').innerText = vocabulary[currentCardIdx].uk;
-                document.getElementById('fc-count').innerText = `${currentCardIdx + 1} / ${vocabulary.length}`;
-            }, 150);
+        function renderFlashcardsGrid() {
+            const targetGrid = document.getElementById('flashcards-grid');
+            vocabulary.forEach((v, idx) => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'flashcard-cell';
+                wrapper.onclick = () => {
+                    const cardInner = wrapper.querySelector('.mini-card');
+                    cardInner.classList.toggle('flipped');
+                };
+                
+                wrapper.innerHTML = `
+                    <div class="mini-card">
+                        <div class="mini-face mini-front">${v.en}</div>
+                        <div class="mini-face mini-back">${v.uk}</div>
+                    </div>
+                `;
+                targetGrid.appendChild(wrapper);
+            });
         }
 
-        function flipCard() {
-            document.getElementById('flashcard').classList.toggle('flipped');
-        }
-
-        function nextCard() {
-            currentCardIdx = (currentCardIdx + 1) % vocabulary.length;
-            updateCard();
-        }
-
-        function prevCard() {
-            currentCardIdx = (currentCardIdx - 1 + vocabulary.length) % vocabulary.length;
-            updateCard();
+        function flipAllCards() {
+            globalFlippedState = !globalFlippedState;
+            const allCards = document.querySelectorAll('.mini-card');
+            allCards.forEach(card => {
+                if(globalFlippedState) {
+                    card.classList.add('flipped');
+                } else {
+                    card.classList.remove('flipped');
+                }
+            });
         }
 
         function updateFAB() {
