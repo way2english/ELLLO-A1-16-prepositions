@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A1-16 Prepositions — Way2English</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#4361ee;--violet:#7c3aed;--teal:#0d9488;--green:#16a34a;--red:#dc2626;--bg:#f8fafc;--surface:#ffffff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b;--radius:12px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+.hero{background:linear-gradient(135deg,#1e3a8a,#4361ee,#7c3aed);color:#fff;padding:48px 24px 36px;text-align:center}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 16px;font-size:13px;font-weight:600;margin-bottom:12px}
+.hero h1{font-size:32px;font-weight:800;margin-bottom:6px}
+.hero p{font-size:16px;opacity:.85}
+
+.stepper-wrap{background:var(--surface);border-bottom:1px solid var(--border);overflow-x:auto;position:sticky;top:0;z-index:50}
+.stepper{display:flex;min-width:max-content;padding:10px 8px;gap:2px}
+.stepper-item{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 8px;border-radius:8px;cursor:pointer;transition:all .2s;min-width:58px}
+.stepper-item:hover{background:#f1f5f9}
+.stepper-item.active{background:#eff6ff}
+.stepper-item.done .step-icon{background:var(--green)!important;color:#fff!important}
+.stepper-item.active .step-icon{background:var(--blue);color:#fff}
+.step-icon{width:34px;height:34px;border-radius:50%;background:#e2e8f0;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .3s}
+.step-label{font-size:9px;font-weight:600;color:var(--muted);text-align:center;line-height:1.2}
+.stepper-item.active .step-label{color:var(--blue)}
+.stepper-item.done .step-label{color:var(--green)}
+
+.main{max-width:800px;margin:0 auto;padding:24px 16px 120px}
+.step-content{display:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.step-content.visible{display:block;animation:fadeUp .4s ease}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section-header{font-size:20px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+
+.vimeo-wrap{border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;margin-bottom:20px}
+.vimeo-wrap iframe{width:100%;height:100%;border:none}
+.conv-list{display:flex;flex-direction:column;gap:8px}
+.conv-list-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#f8fafc;border-radius:8px;border:1px solid var(--border);font-size:14px;font-weight:600}
+.conv-num{width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+
+.infographic-wrap{margin-bottom:24px;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.1);border:1px solid var(--border)}
+.infographic-wrap img{width:100%;display:block}
+.infographic-caption{font-size:12px;color:var(--muted);text-align:center;margin-top:6px;margin-bottom:16px;font-style:italic}
+
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.vocab-item{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.vocab-word{font-weight:700;font-size:14px;flex:1}
+.vocab-ua{font-size:12px;color:var(--muted);margin-top:3px}
+.speak-btn{background:none;border:none;cursor:pointer;font-size:18px;padding:4px;border-radius:6px;transition:background .2s;flex-shrink:0}
+.speak-btn:hover{background:#e0f2fe}
+
+.conv-img{width:100%;border-radius:var(--radius);margin-bottom:16px;object-fit:cover;max-height:280px}
+audio{width:100%;margin-bottom:20px;border-radius:8px;display:block}
+.quiz-area{display:flex;flex-direction:column;gap:18px}
+.quiz-q{font-weight:700;margin-bottom:8px;font-size:15px}
+.quiz-opts{display:flex;flex-direction:column;gap:6px}
+.quiz-opt{background:#f8fafc;border:2px solid var(--border);border-radius:8px;padding:10px 14px;cursor:pointer;font-size:14px;text-align:left;font-family:'Plus Jakarta Sans',sans-serif;transition:all .2s;width:100%}
+.quiz-opt:hover:not(:disabled){border-color:var(--blue);background:#eff6ff}
+.quiz-opt.correct{background:#dcfce7;border-color:var(--green);color:var(--green);font-weight:700}
+.quiz-opt.wrong{background:#fee2e2;border-color:var(--red);color:var(--red)}
+.quiz-opt:disabled{cursor:not-allowed}
+.quiz-result{padding:10px 16px;border-radius:8px;font-weight:700;font-size:15px;margin-top:8px}
+.quiz-result.pass{background:#dcfce7;color:var(--green)}
+.quiz-result.fail{background:#fef3c7;color:#92400e}
+
+.pzl-line{margin-bottom:10px;font-size:15px;line-height:2.4}
+.pzl-sel{font-family:'JetBrains Mono',monospace;font-size:13px;border:2px solid var(--blue);border-radius:6px;padding:4px 6px;background:#eff6ff;color:var(--text);cursor:pointer;transition:all .2s;margin:0 2px;vertical-align:middle}
+.check-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px 24px;font-size:14px;font-weight:700;cursor:pointer;margin-top:12px;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s}
+.check-btn:hover{background:#3451d1}
+.pzl-score{margin-top:10px}
+.pzl-audio-label{font-size:13px;color:var(--muted);margin:16px 0 8px;font-style:italic}
+
+.carousel{position:relative}
+.carousel-slide{display:none}
+.carousel-slide.active{display:block}
+.carousel-nav{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
+.car-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s}
+.car-btn:hover:not(:disabled){background:#3451d1}
+.car-btn:disabled{background:#cbd5e1;cursor:not-allowed}
+.car-counter{font-size:14px;font-weight:600;color:var(--muted)}
+.reading-title{font-weight:800;font-size:17px;margin-bottom:16px;color:var(--blue)}
+.rd-dialog{display:flex;flex-direction:column;gap:10px}
+.rd-line{font-size:15px;line-height:1.6;padding:10px 14px;background:#f8fafc;border-radius:8px;border-left:4px solid var(--blue)}
+.rd-line.woman{border-left-color:var(--violet);background:#faf5ff}
+.rd-spk{font-weight:800;margin-right:6px}
+.rd-line .rd-spk{color:var(--blue)}
+.rd-line.woman .rd-spk{color:var(--violet)}
+
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.flip-card{height:140px;perspective:1000px;cursor:pointer}
+.flip-card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s;border-radius:var(--radius)}
+.flip-card.flipped .flip-card-inner{transform:rotateY(180deg)}
+.flip-card-front,.flip-card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center}
+.flip-card-front{background:linear-gradient(135deg,#1e3a8a,#4361ee);color:#fff}
+.flip-card-back{background:var(--surface);border:2px solid var(--blue);color:var(--text);transform:rotateY(180deg)}
+.card-en{font-weight:700;font-size:14px;margin-bottom:6px}
+.card-hint{font-size:11px;opacity:.7}
+.card-ua{font-weight:700;font-size:15px;color:var(--blue)}
+.flip-all-btn{background:var(--violet);color:#fff;border:none;border-radius:8px;padding:10px 24px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:16px;transition:background .2s}
+.flip-all-btn:hover{background:#6d28d9}
+
+.sp-line{display:flex;gap:10px;margin-bottom:8px;align-items:flex-start}
+.sp-role{font-size:12px;font-weight:700;color:var(--violet);min-width:90px;flex-shrink:0;padding-top:3px}
+.sp-text{font-size:15px;line-height:1.6}
+.sp-blank{display:inline-block;width:260px;border-bottom:2px dashed var(--violet);color:var(--muted);font-size:13px;font-style:italic}
+.sp-interview-note{font-size:12px;color:var(--muted);font-style:italic;text-align:center;margin-bottom:16px;padding:8px 12px;background:#f8fafc;border-radius:8px;border:1px solid var(--border)}
+.sp-dialog-title{font-weight:800;font-size:16px;margin-bottom:16px;color:var(--violet)}
+
+.fab{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,var(--blue),var(--violet));color:#fff;border:none;border-radius:999px;padding:14px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(67,97,238,.4);font-family:'Plus Jakarta Sans',sans-serif;z-index:100;transition:transform .2s}
+.fab:hover{transform:scale(1.05)}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);border-radius:16px;padding:28px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto}
+.modal-title{font-size:20px;font-weight:800;margin-bottom:20px}
+.results-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:14px}
+.results-table th{background:#f1f5f9;padding:8px 12px;text-align:left;font-weight:700;border:1px solid var(--border)}
+.results-table td{padding:8px 12px;border:1px solid var(--border)}
+.medal-row{text-align:center;font-size:48px;margin-bottom:8px}
+.score-pct{text-align:center;font-size:22px;font-weight:800;margin-bottom:16px}
+.report-area{width:100%;border:1px solid var(--border);border-radius:8px;padding:10px;font-family:'JetBrains Mono',monospace;font-size:11px;resize:none;height:130px}
+.modal-btn{display:block;width:100%;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s}
+.copy-btn{background:var(--teal);color:#fff}
+.copy-btn:hover{background:#0f766e}
+.close-btn{background:#64748b;color:#fff}
+.close-btn:hover{background:#475569}
+
+.nav-btns{display:flex;gap:10px;margin-top:20px}
+.nav-btn{flex:1;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s}
+.nav-btn:hover{background:#3451d1}
+.nav-btn.sec{background:#e2e8f0;color:var(--text)}
+.nav-btn.sec:hover{background:#cbd5e1}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Way2English · A1-16</div>
+  <h1>Prepositions</h1>
+  <p>Як орієнтуватися в місті 🏙️</p>
+</div>
+
+<div class="stepper-wrap">
+  <div class="stepper">
+    <div class="stepper-item active" onclick="showStep(0)"><div class="step-icon">🎬</div><div class="step-label">Watch</div></div>
+    <div class="stepper-item" onclick="showStep(1)"><div class="step-icon">📚</div><div class="step-label">Слова</div></div>
+    <div class="stepper-item" onclick="showStep(2)"><div class="step-icon">🎧</div><div class="step-label">Розм. 1</div></div>
+    <div class="stepper-item" onclick="showStep(3)"><div class="step-icon">🎧</div><div class="step-label">Розм. 2</div></div>
+    <div class="stepper-item" onclick="showStep(4)"><div class="step-icon">🎧</div><div class="step-label">Розм. 3</div></div>
+    <div class="stepper-item" onclick="showStep(5)"><div class="step-icon">🎧</div><div class="step-label">Розм. 4</div></div>
+    <div class="stepper-item" onclick="showStep(6)"><div class="step-icon">🧩</div><div class="step-label">Пазл</div></div>
+    <div class="stepper-item" onclick="showStep(7)"><div class="step-icon">📖</div><div class="step-label">Читання</div></div>
+    <div class="stepper-item" onclick="showStep(8)"><div class="step-icon">🃏</div><div class="step-label">Картки</div></div>
+    <div class="stepper-item" onclick="showStep(9)"><div class="step-icon">🗣️</div><div class="step-label">Говоримо</div></div>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- STEP 0: WATCH -->
+<div class="step-content visible" id="step-0">
+  <div class="section-header">🎬 Watch</div>
+  <div class="vimeo-wrap">
+    <iframe src="https://player.vimeo.com/video/950580850?h=0&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <div class="card">
+    <div style="font-weight:800;font-size:16px;margin-bottom:14px;">📋 Розмови в уроці</div>
+    <div class="conv-list">
+      <div class="conv-list-item"><div class="conv-num">1</div>Where is the hotel?</div>
+      <div class="conv-list-item"><div class="conv-num">2</div>Where do you live?</div>
+      <div class="conv-list-item"><div class="conv-num">3</div>Where is the mall?</div>
+      <div class="conv-list-item"><div class="conv-num">4</div>Does your town have a language school?</div>
+    </div>
+  </div>
+  <div class="nav-btns">
+    <button class="nav-btn" onclick="showStep(1)">Далі → Слова</button>
+  </div>
+</div>
+
+<!-- STEP 1: VOCAB -->
+<div class="step-content" id="step-1">
+  <div class="section-header">📚 Слова</div>
+  <div class="card">
+    <div class="infographic-wrap">
+      <img src="infographic.png" alt="Прийменники в місті — інфографіка">
+    </div>
+    <p class="infographic-caption">🗺️ Вивчи прийменники місця перед тим, як слухати розмови</p>
+    <div class="vocab-grid" id="vocab-grid"></div>
+  </div>
+  <div class="nav-btns">
+    <button class="nav-btn sec" onclick="showStep(0)">← Назад</button>
+    <button class="nav-btn" onclick="showStep(2)">Далі → Розмова 1</button>
+  </div>
+</div>
+
+<!-- STEP 2: CONV 1 -->
+<div class="step-content" id="step-2">
+  <div class="section-header">🎧 Conversation 1 — Where is the hotel?</div>
+  <div class="card">
+    <img class="conv-img" src="img1.jpg" alt="Conversation 1">
+    <audio controls style="display:block;width:100%;margin-bottom:20px;">
+      <source src="audio1.mp3" type="audio/mpeg">
+      <source src="https://elllo.org/Audio/SoundGrammar/A1-Audio4x/A1-16-1-Prepositions.mp3" type="audio/mpeg">
+    </audio>
+    <div class="quiz-area" id="quiz-0"></div>
+    <div id="qresult-0"></div>
+  </div>
+  <div class="nav-btns">
+    <button class="nav-btn sec" onclick="showStep(1)">← Назад</button>
+    <button class="nav-btn" onclick="showStep(3)">Далі → Розмова 2</button>
+  </div>
+</div>
+
+<!-- STEP 3: CONV 2 -->
+<div class="step-content" id="step-3">
+  <div class="section-header">🎧 Conversation 2 — Where do you live?</div>
+  <div class="card">
+    <img class="conv-img" src="img2.jpg" alt="Conversation 2">
+    <audio controls style="display:block;width:100%;margin-bottom:20px;">
+      <source src="audio2.mp3" type="audio/mpeg">
+      <source src="https://elllo.org/Audio/SoundGrammar/A1-Audio4x/A1-16-2-Prepositions.mp3" type="audio/mpeg">
+    </audio>
+    <div class="quiz-area" id="quiz-1"></div>
+    <div id="qresult-1"></div>
+  </div>
+  <div class="nav-btns">
+    <button class="nav-btn sec" onclick="showStep(2)">← Назад</button>
+    <button class="nav-btn" onclick="showStep(4)">Далі → Розмова 3</button>
+  </div>
+</div>
+
+<!-- STEP 4: CONV 3 -->
+<div class="step-content" id="step-4">
+  <div class="section-header">🎧 Conversation 3 — Where is the mall?</div>
+  <div class="card">
+    <img class="conv-img" src="img3.jpg" alt="Conversation 3">
+    <audio controls style="display:block;width:100%;margin-bottom:20px;">
+      <source src="audio3.mp3" type="audio/mpeg">
+      <source src="https://elllo.org/Audio/SoundGrammar/A1-Audio4x/A1-16-3-Prepositions.mp3" type="audio/mpeg">
+    </audio>
+    <div class="quiz-area" id="quiz-2"></div>
+    <div id="qresult-2"></div>
+  </div>
+  <div class="nav-btns">
+    <button class="nav-btn sec" onclick="showStep(3)">← Назад</button>
+    <button class="nav-btn" onclick="showStep(5)">Далі → Розмова 4</button>
+  </div>
+</div>
+
+<!-- STEP 5: CONV 4 -->
+<div class="step-content" id="step-5">
+  <div class="section-header">🎧 Conversation 4 — Does your town have a language school?</div>
+  <div class="card">
+    <img class="conv-img" src="img4.jpg" alt="Conversation 4">
+    <audio controls style="display:block;width:100%;margin-bottom:20px;">
+      <source src="audio4.mp3" type="audio/mpeg">
+      <source src="https://elllo.org/Audio/SoundGrammar/A1-Audio4x/A1-16-4-Prepositions.mp3" type="audio/mpeg">
+    </audio>
+    <div class="quiz-area" id="quiz-3"></div>
+    <div id="qresult-3"></div>
+  </div>
+  <div class="nav-btns">
+    <button class="nav-btn sec" onclick="showStep(4)">← Назад</button>
+    <button class="nav-btn" onclick="showStep(6)">Далі → Пазл</button>
+  </div>
+</div>
+
+<!-- STEP 6: PUZZLE -->
+<div class="step-content" id="step-6">
+  <div class="section-header">🧩 Пазл</div>
+  <div id="puzzle-area"></div>
+  <div class="nav-btns">
+    <button class="nav-btn sec" onclick="showStep(5)">← Назад</button>
+    <button class="nav-btn" onclick="showStep(7)">Далі → Читання</button>
+  </div>
+</div>
+
+<!-- STEP 7: READING -->
+<div class="step-content" id="step-7">
+  <div class="section-header">📖 Читання</div>
+  <div class="card">
+    <div class="carousel">
+      <div id="rslide0" class="carousel-slide active"></div>
+      <div id="rslide1" class="carousel-slide"></div>
+      <div id="rslide2" class="carousel-slide"></div>
+      <div id="rslide3" class="carousel-slide"></div>
+    </div>
+    <div class="carousel-nav">
+      <button class="car-btn" id="rprev" onclick="carNav('r',-1)" disabled>← Назад</button>
+      <span class="car-counter" id="rcounter">1 / 4</span>
+      <button class="car-btn" id="rnext" onclick="carNav('r',1)">Далі →</button>
+    </div>
+  </div>
+  <div class="nav-btns">
+    <button class="nav-btn sec" onclick="showStep(6)">← Назад</button>
+    <button class="nav-btn" onclick="showStep(8)">Далі → Картки</button>
+  </div>
+</div>
+
+<!-- STEP 8: FLASHCARDS -->
+<div class="step-content" id="step-8">
+  <div class="section-header">🃏 Картки</div>
+  <div class="card">
+    <button class="flip-all-btn" id="flip-all-btn" onclick="flipAll()">🔄 Перевернути всі</button>
+    <div class="cards-grid" id="cards-grid"></div>
+  </div>
+  <div class="nav-btns">
+    <button class="nav-btn sec" onclick="showStep(7)">← Назад</button>
+    <button class="nav-btn" onclick="showStep(9)">Далі → Говоримо</button>
+  </div>
+</div>
+
+<!-- STEP 9: SPEAKING -->
+<div class="step-content" id="step-9">
+  <div class="section-header">🗣️ Говоримо</div>
+  <div class="card">
+    <div class="carousel">
+      <div id="spslide0" class="carousel-slide active"></div>
+      <div id="spslide1" class="carousel-slide"></div>
+      <div id="spslide2" class="carousel-slide"></div>
+      <div id="spslide3" class="carousel-slide"></div>
+    </div>
+    <div class="carousel-nav">
+      <button class="car-btn" id="spprev" onclick="carNav('sp',-1)" disabled>← Назад</button>
+      <span class="car-counter" id="spcounter">1 / 4</span>
+      <button class="car-btn" id="spnext" onclick="carNav('sp',1)">Далі →</button>
+    </div>
+  </div>
+  <div class="nav-btns">
+    <button class="nav-btn sec" onclick="showStep(8)">← Назад</button>
+  </div>
+</div>
+
+</div><!-- end .main -->
+
+<button class="fab" id="fab" onclick="openResults()">📊 Результати 0/0</button>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-title">📊 Мої результати</div>
+    <div id="results-content"></div>
+    <button class="modal-btn close-btn" onclick="closeResults()">✕ Закрити</button>
+  </div>
+</div>
+
+<script>
+// ===== DATA =====
+
+var VOCAB = [
+  {en:'downtown', ua:'у центрі міста'},
+  {en:'near', ua:'поруч'},
+  {en:'across from', ua:'навпроти'},
+  {en:'nearby', ua:'поблизу / близько'},
+  {en:'east side', ua:'східна частина міста'},
+  {en:'not far away', ua:'недалеко'},
+  {en:'beach', ua:'пляж'},
+  {en:'next to', ua:'поряд з'},
+  {en:'train station', ua:'вокзал'},
+  {en:'nearest gym', ua:'найближчий спортзал'},
+  {en:'second floor', ua:'другий поверх'},
+  {en:'language', ua:'мова / мовна'},
+  {en:'Street', ua:'вулиця'},
+  {en:'between', ua:'між'},
+  {en:'that is close', ua:'це близько'},
+  {en:'only five minutes away', ua:'всього за п\'ять хвилин'}
+];
+
+var CONVS = [
+  {
+    title: 'Conversation 1',
+    questions: [
+      {
+        q: 'Where is the hotel?',
+        opts: ['Near the beach', 'Downtown', 'On A Street', 'Next to the train station'],
+        ans: 1
+      },
+      {
+        q: 'What is across from the hotel?',
+        opts: ['The mall', 'The gym', 'The museum', 'The cafe'],
+        ans: 2
+      },
+      {
+        q: 'What is nearby?',
+        opts: ['The beach', 'The gym', 'The park', 'The mall'],
+        ans: 3
+      }
+    ]
+  },
+  {
+    title: 'Conversation 2',
+    questions: [
+      {
+        q: 'Where does the woman live?',
+        opts: ['Near the park', 'Downtown', 'On the east side of town', 'Next to the train station'],
+        ans: 2
+      },
+      {
+        q: 'Is the university far away?',
+        opts: ['Yes, very far', 'No, it is not far away', 'She does not know', 'Yes, it is far'],
+        ans: 1
+      },
+      {
+        q: 'Where exactly does the woman live?',
+        opts: ['Near the beach', 'Next to the beach', 'On the beach', 'Across from the beach'],
+        ans: 2
+      }
+    ]
+  },
+  {
+    title: 'Conversation 3',
+    questions: [
+      {
+        q: 'Where is the mall?',
+        opts: ['Across from the train station', 'Next to the train station', 'Downtown', 'Near the park'],
+        ans: 1
+      },
+      {
+        q: 'Where is the cafe?',
+        opts: ['Next to the train station', 'In the mall', 'Across from the train station', 'On the second floor'],
+        ans: 2
+      },
+      {
+        q: 'Where is the nearest gym?',
+        opts: ['Downtown', 'Near the train station', 'In the mall on the second floor', 'Across from the cafe'],
+        ans: 2
+      }
+    ]
+  },
+  {
+    title: 'Conversation 4',
+    questions: [
+      {
+        q: 'Does the town have a language school?',
+        opts: ['No', 'Yes', 'Maybe', 'She does not know'],
+        ans: 1
+      },
+      {
+        q: 'Where is the language school?',
+        opts: ['Near the train station', 'Downtown', 'On A Street', 'Next to the mall'],
+        ans: 2
+      },
+      {
+        q: 'How far is the language school?',
+        opts: ['Ten minutes away', 'Very far', 'Fifteen minutes away', 'Five minutes away'],
+        ans: 3
+      }
+    ]
+  }
+];
+
+var PUZZLES = [
+  {
+    title: 'Conversation 1',
+    audio: 'audio1.mp3',
+    audioFallback: 'https://elllo.org/Audio/SoundGrammar/A1-Audio4x/A1-16-1-Prepositions.mp3',
+    bank: ['nearby','good','Where','in','Is','across','downtown','near'],
+    lines: [
+      {spk:'Man', segs:[{blank:'Where'},{t:' is the hotel?'}]},
+      {spk:'Woman', segs:[{t:'It is '},{blank:'downtown'},{t:'. It is '},{blank:'near'},{t:' the park.'}]},
+      {spk:'Man', segs:[{blank:'Is'},{t:' it near the museum?'}]},
+      {spk:'Woman', segs:[{t:'Yes, the museum is '},{blank:'across'},{t:' from the hotel '},{blank:'in'},{t:' the park.'}]},
+      {spk:'Man', segs:[{t:'That is a '},{blank:'good'},{t:' location.'}]},
+      {spk:'Woman', segs:[{t:'Yes, and the mall is '},{blank:'nearby'},{t:' too.'}]}
+    ]
+  },
+  {
+    title: 'Conversation 2',
+    audio: 'audio2.mp3',
+    audioFallback: 'https://elllo.org/Audio/SoundGrammar/A1-Audio4x/A1-16-2-Prepositions.mp3',
+    bank: ['east','in','beach','live','on','actually','near','far'],
+    lines: [
+      {spk:'Man', segs:[{t:'Where do you '},{blank:'live'},{t:'?'}]},
+      {spk:'Woman', segs:[{t:'I live '},{blank:'in'},{t:' the '},{blank:'east'},{t:' side of town.'}]},
+      {spk:'Man', segs:[{t:'Are you '},{blank:'near'},{t:' the university?'}]},
+      {spk:'Woman', segs:[{t:'Yes, it is not '},{blank:'far'},{t:' away.'}]},
+      {spk:'Man', segs:[{t:'Are you near the '},{blank:'beach'},{t:'?'}]},
+      {spk:'Woman', segs:[{t:'Yes, I live '},{blank:'on'},{t:' the beach '},{blank:'actually'},{t:'.'}]}
+    ]
+  },
+  {
+    title: 'Conversation 3',
+    audio: 'audio3.mp3',
+    audioFallback: 'https://elllo.org/Audio/SoundGrammar/A1-Audio4x/A1-16-3-Prepositions.mp3',
+    bank: ['across','station','in','floor','mall','nearest','next','on'],
+    lines: [
+      {spk:'Man', segs:[{t:'Where is the '},{blank:'mall'},{t:'?'}]},
+      {spk:'Woman', segs:[{t:'It is '},{blank:'next'},{t:' to the train '},{blank:'station'},{t:'.'}]},
+      {spk:'Man', segs:[{t:'Where is the cafe?'}]},
+      {spk:'Woman', segs:[{t:'It is '},{blank:'across'},{t:' from the train station.'}]},
+      {spk:'Man', segs:[{t:'And where is the '},{blank:'nearest'},{t:' gym?'}]},
+      {spk:'Woman', segs:[{t:'There is one '},{blank:'in'},{t:' the mall '},{blank:'on'},{t:' the second '},{blank:'floor'},{t:'.'}]}
+    ]
+  },
+  {
+    title: 'Conversation 4',
+    audio: 'audio4.mp3',
+    audioFallback: 'https://elllo.org/Audio/SoundGrammar/A1-Audio4x/A1-16-4-Prepositions.mp3',
+    bank: ['Where','there','office','between','Does','away','school','close'],
+    lines: [
+      {spk:'Man', segs:[{blank:'Does'},{t:' your town have a language '},{blank:'school'},{t:'?'}]},
+      {spk:'Woman', segs:[{t:'Yes, '},{blank:'there'},{t:' is one on A Street.'}]},
+      {spk:'Man', segs:[{blank:'Where'},{t:' on A Street?'}]},
+      {spk:'Woman', segs:[{t:'It is '},{blank:'between'},{t:' the bank and the post '},{blank:'office'},{t:'.'}]},
+      {spk:'Man', segs:[{t:'Oh, that is '},{blank:'close'},{t:'.'}]},
+      {spk:'Woman', segs:[{t:'Yes, it is only five minutes '},{blank:'away'},{t:'.'}]}
+    ]
+  }
+];
+
+var READING = [
+  {
+    title: 'Conversation 1 — Where is the hotel?',
+    lines: [
+      {spk:'Man', text:'Where is the hotel?'},
+      {spk:'Woman', text:'It is downtown. It is near the park.'},
+      {spk:'Man', text:'Is it near the museum?'},
+      {spk:'Woman', text:'Yes, the museum is across from the hotel in the park.'},
+      {spk:'Man', text:'That is a good location.'},
+      {spk:'Woman', text:'Yes, and the mall is nearby too.'}
+    ]
+  },
+  {
+    title: 'Conversation 2 — Where do you live?',
+    lines: [
+      {spk:'Man', text:'Where do you live?'},
+      {spk:'Woman', text:'I live in the east side of town.'},
+      {spk:'Man', text:'Are you near the university?'},
+      {spk:'Woman', text:'Yes, it is not far away.'},
+      {spk:'Man', text:'Are you near the beach?'},
+      {spk:'Woman', text:'Yes, I live on the beach actually.'}
+    ]
+  },
+  {
+    title: 'Conversation 3 — Where is the mall?',
+    lines: [
+      {spk:'Man', text:'Where is the mall?'},
+      {spk:'Woman', text:'It is next to the train station.'},
+      {spk:'Man', text:'Where is the cafe?'},
+      {spk:'Woman', text:'It is across from the train station.'},
+      {spk:'Man', text:'And where is the nearest gym?'},
+      {spk:'Woman', text:'There is one in the mall on the second floor.'}
+    ]
+  },
+  {
+    title: 'Conversation 4 — Does your town have a language school?',
+    lines: [
+      {spk:'Man', text:'Does your town have a language school?'},
+      {spk:'Woman', text:'Yes, there is one on A Street.'},
+      {spk:'Man', text:'Where on A Street?'},
+      {spk:'Woman', text:'It is between the bank and the post office.'},
+      {spk:'Man', text:'Oh, that is close.'},
+      {spk:'Woman', text:'Yes, it is only five minutes away.'}
+    ]
+  }
+];
+
+var CARDS = [
+  {en:'Where is the hotel?', ua:'Де готель?'},
+  {en:'It is downtown.', ua:'Воно в центрі міста.'},
+  {en:'It is near the park.', ua:'Воно поруч з парком.'},
+  {en:'Is it near the museum?', ua:'Це поруч з музеєм?'},
+  {en:'The museum is across from the hotel.', ua:'Музей навпроти готелю.'},
+  {en:'It is not far away.', ua:'Це недалеко.'},
+  {en:'It is next to the train station.', ua:'Це поряд з вокзалом.'},
+  {en:'It is across from the train station.', ua:'Це навпроти вокзалу.'},
+  {en:'It is on the second floor.', ua:'Це на другому поверсі.'},
+  {en:'It is between the bank and the post office.', ua:'Це між банком і поштою.'},
+  {en:'It is only five minutes away.', ua:'Це всього за п\'ять хвилин.'},
+  {en:'That is close!', ua:'Це близько!'}
+];
+
+var SPEAKING = [
+  {
+    title: 'Діалог 1 — Де готель?',
+    type: 'pair',
+    lines: [
+      {role:'Студент А', text:'Вибач, де тут готель?'},
+      {role:'Студент Б', text:'Готель у центрі міста, поруч з парком.'},
+      {role:'Студент А', text:'А музей теж поруч?'},
+      {role:'Студент Б', text:'Так! Музей навпроти готелю.'},
+      {role:'Студент А', text:'Це далеко звідси?'},
+      {role:'Студент Б', text:'Ні, це недалеко. Всього п\'ять хвилин.'},
+      {role:'Студент А', text:'Дякую! А торговий центр є поруч?'},
+      {role:'Студент Б', text:'Так, і торговий центр теж поруч!'}
+    ]
+  },
+  {
+    title: 'Діалог 2 — Де найближчий спортзал?',
+    type: 'pair',
+    lines: [
+      {role:'Студент А', text:'Вибач, де найближчий спортзал?'},
+      {role:'Студент Б', text:'Є один у торговому центрі.'},
+      {role:'Студент А', text:'А де торговий центр?'},
+      {role:'Студент Б', text:'Він поряд з вокзалом.'},
+      {role:'Студент А', text:'На якому поверсі спортзал?'},
+      {role:'Студент Б', text:'На другому поверсі.'},
+      {role:'Студент А', text:'А де кафе? Хочу каву після тренування.'},
+      {role:'Студент Б', text:'Кафе навпроти вокзалу!'}
+    ]
+  },
+  {
+    title: 'Діалог 3 — Де ти живеш?',
+    type: 'interview',
+    note: '🎤 Студент А перекладає запитання англійською → Студент Б відповідає про себе',
+    lines: [
+      {role:'Студент А', text:'Де ти живеш?'},
+      {role:'Студент Б', blank:true},
+      {role:'Студент А', text:'Це центр міста чи інший район?'},
+      {role:'Студент Б', blank:true},
+      {role:'Студент А', text:'Є поруч парк або пляж?'},
+      {role:'Студент Б', blank:true},
+      {role:'Студент А', text:'А університет або школа є поруч?'},
+      {role:'Студент Б', blank:true},
+      {role:'Студент А', text:'Це далеко від центру міста?'},
+      {role:'Студент Б', blank:true},
+      {role:'Студент А', text:'Скільки хвилин до центру?'},
+      {role:'Студент Б', blank:true}
+    ]
+  },
+  {
+    title: 'Діалог 4 — Що є в твоєму місті?',
+    type: 'interview',
+    note: '🎤 Студент А перекладає запитання англійською → Студент Б відповідає про себе',
+    lines: [
+      {role:'Студент А', text:'Є у вашому місті мовна школа?'},
+      {role:'Студент Б', blank:true},
+      {role:'Студент А', text:'Де вона знаходиться?'},
+      {role:'Студент Б', blank:true},
+      {role:'Студент А', text:'Є поруч банк або пошта?'},
+      {role:'Студент Б', blank:true},
+      {role:'Студент А', text:'А торговий центр є в місті?'},
+      {role:'Студент Б', blank:true},
+      {role:'Студент А', text:'Де він — поруч з вокзалом?'},
+      {role:'Студент Б', blank:true},
+      {role:'Студент А', text:'Це близько від центру?'},
+      {role:'Студент Б', blank:true}
+    ]
+  }
+];
+
+// ===== STATE =====
+var currentStep = 0;
+var correctMap = {};
+var quizAnswered = {};
+var quizScores = {};
+var puzzleScores = {};
+var carState = {r:0, sp:0};
+var allFlipped = false;
+
+// ===== CORE =====
+
+function showStep(n) {
+  document.querySelectorAll('.step-content').forEach(function(el) {
+    el.classList.remove('visible');
+  });
+  var el = document.getElementById('step-' + n);
+  if (el) el.classList.add('visible');
+  currentStep = n;
+  document.querySelectorAll('.stepper-item').forEach(function(item, i) {
+    item.classList.toggle('active', i === n);
+  });
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function markDone(n) {
+  var items = document.querySelectorAll('.stepper-item');
+  if (items[n]) items[n].classList.add('done');
+}
+
+function speak(text) {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  var utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-US';
+  utt.rate = 0.85;
+  window.speechSynthesis.speak(utt);
+}
+
+// ===== VOCAB =====
+
+function buildVocab() {
+  var html = '';
+  VOCAB.forEach(function(v) {
+    var safeEn = v.en.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    html += '<div class="vocab-item">';
+    html += '<div class="vocab-word">' + v.en;
+    html += '<div class="vocab-ua">' + v.ua + '</div>';
+    html += '</div>';
+    html += '<button class="speak-btn" onclick="speak(\'' + safeEn + '\')">🔊</button>';
+    html += '</div>';
+  });
+  document.getElementById('vocab-grid').innerHTML = html;
+}
+
+// ===== QUIZ =====
+
+function buildQuiz(convIdx) {
+  var conv = CONVS[convIdx];
+  var qKey = 'c' + convIdx;
+  var html = '';
+  conv.questions.forEach(function(q, qi) {
+    html += '<div class="quiz-item">';
+    html += '<div class="quiz-q">' + (qi + 1) + '. ' + q.q + '</div>';
+    html += '<div class="quiz-opts">';
+    q.opts.forEach(function(opt, oi) {
+      html += '<button class="quiz-opt" ';
+      html += 'onclick="answerQuiz(\'' + qKey + '\',' + qi + ',' + oi + ',' + q.ans + ',' + convIdx + ',this)">';
+      html += opt + '</button>';
+    });
+    html += '</div></div>';
+  });
+  var el = document.getElementById('quiz-' + convIdx);
+  if (el) el.innerHTML = html;
+}
+
+function answerQuiz(qKey, qi, oi, ans, convIdx, btn) {
+  var ck = qKey + '-' + qi;
+  if (quizAnswered[ck]) return;
+  quizAnswered[ck] = true;
+  correctMap[ck] = (oi === ans);
+
+  var allOpts = btn.parentElement.querySelectorAll('.quiz-opt');
+  allOpts.forEach(function(b) { b.disabled = true; });
+  if (oi === ans) {
+    btn.classList.add('correct');
+  } else {
+    btn.classList.add('wrong');
+    allOpts[ans].classList.add('correct');
+  }
+
+  var total = CONVS[convIdx].questions.length;
+  var allDone = true;
+  for (var k = 0; k < total; k++) {
+    if (!quizAnswered[qKey + '-' + k]) { allDone = false; break; }
+  }
+  if (allDone) {
+    var got = 0;
+    for (var k2 = 0; k2 < total; k2++) {
+      if (correctMap[qKey + '-' + k2]) got++;
+    }
+    quizScores[qKey] = {got: got, total: total};
+    updateFab();
+    markDone(convIdx + 2);
+    var resEl = document.getElementById('qresult-' + convIdx);
+    if (resEl) {
+      resEl.innerHTML = '<div class="quiz-result ' + (got === total ? 'pass' : 'fail') + '">' +
+        (got === total ? '🏆' : '💪') + ' Результат: ' + got + '/' + total + '</div>';
+    }
+  }
+}
+
+// ===== PUZZLE =====
+
+function makeSel(word, pi, bank) {
+  var shuffled = bank.slice().sort(function() { return Math.random() - 0.5; });
+  var opts = '<option value="">—</option>';
+  for (var i = 0; i < shuffled.length; i++) {
+    opts += '<option value="' + shuffled[i] + '">' + shuffled[i] + '</option>';
+  }
+  return '<select class="pzl-sel" data-ans="' + word + '" data-pi="' + pi + '">' + opts + '</select>';
+}
+
+function renderPuzzleHtml(pi) {
+  var pz = PUZZLES[pi];
+  var html = '';
+  for (var li = 0; li < pz.lines.length; li++) {
+    var line = pz.lines[li];
+    html += '<div class="pzl-line"><strong>' + line.spk + ':</strong> ';
+    for (var si = 0; si < line.segs.length; si++) {
+      var seg = line.segs[si];
+      if (seg.blank !== undefined) {
+        html += makeSel(seg.blank, pi, pz.bank);
+      } else {
+        html += seg.t;
+      }
+    }
+    html += '</div>';
+  }
+  return html;
+}
+
+function buildPuzzles() {
+  var area = document.getElementById('puzzle-area');
+  area.innerHTML = '';
+  for (var pi = 0; pi < PUZZLES.length; pi++) {
+    var pz = PUZZLES[pi];
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.id = 'pzl-card-' + pi;
+
+    var titleEl = document.createElement('div');
+    titleEl.style.cssText = 'font-weight:800;font-size:16px;margin-bottom:16px;';
+    titleEl.textContent = pz.title;
+    card.appendChild(titleEl);
+
+    var linesDiv = document.createElement('div');
+    linesDiv.innerHTML = renderPuzzleHtml(pi);
+    card.appendChild(linesDiv);
+
+    var label = document.createElement('div');
+    label.className = 'pzl-audio-label';
+    label.textContent = '💡 Якщо треба — прослухай аудіо ще раз — ' + pz.title;
+    card.appendChild(label);
+
+    var aud = document.createElement('audio');
+    aud.controls = true;
+    aud.style.cssText = 'display:block;width:100%;margin-bottom:12px;';
+    var src1 = document.createElement('source');
+    src1.src = pz.audio;
+    src1.type = 'audio/mpeg';
+    aud.appendChild(src1);
+    var src2 = document.createElement('source');
+    src2.src = pz.audioFallback;
+    src2.type = 'audio/mpeg';
+    aud.appendChild(src2);
+    card.appendChild(aud);
+
+    var btn = document.createElement('button');
+    btn.className = 'check-btn';
+    btn.textContent = 'Перевірити';
+    (function(idx) {
+      btn.onclick = function() { checkPuzzle(idx); };
+    })(pi);
+    card.appendChild(btn);
+
+    var scoreDiv = document.createElement('div');
+    scoreDiv.className = 'pzl-score';
+    scoreDiv.id = 'pzl-score-' + pi;
+    card.appendChild(scoreDiv);
+
+    area.appendChild(card);
+  }
+}
+
+function checkPuzzle(pi) {
+  var pKey = 'p' + pi;
+  var sels = document.querySelectorAll('.pzl-sel[data-pi="' + pi + '"]');
+  var got = 0;
+  sels.forEach(function(sel) {
+    var ans = sel.getAttribute('data-ans');
+    var val = sel.value;
+    if (val === ans) {
+      got++;
+      sel.style.background = '#dcfce7';
+      sel.style.borderColor = '#16a34a';
+      sel.style.color = '#15803d';
+    } else {
+      sel.style.background = '#fee2e2';
+      sel.style.borderColor = '#dc2626';
+      sel.style.color = '#dc2626';
+    }
+  });
+  var total = sels.length;
+  puzzleScores[pKey] = {got: got, total: total};
+  updateFab();
+  var scoreEl = document.getElementById('pzl-score-' + pi);
+  if (scoreEl) {
+    scoreEl.innerHTML = '<div class="quiz-result ' + (got === total ? 'pass' : 'fail') + '">' +
+      (got === total ? '🏆' : '💪') + ' Результат: ' + got + '/' + total + '</div>';
+  }
+  if (got === total) markDone(6);
+}
+
+// ===== READING =====
+
+function buildReading() {
+  READING.forEach(function(r, i) {
+    var el = document.getElementById('rslide' + i);
+    if (!el) return;
+    var html = '<div class="reading-title">' + r.title + '</div>';
+    html += '<div class="rd-dialog">';
+    r.lines.forEach(function(line) {
+      var isWoman = line.spk === 'Woman';
+      html += '<div class="rd-line' + (isWoman ? ' woman' : '') + '">';
+      html += '<span class="rd-spk">' + line.spk + ':</span>';
+      html += line.text;
+      html += '</div>';
+    });
+    html += '</div>';
+    el.innerHTML = html;
+  });
+}
+
+// ===== FLASHCARDS =====
+
+function buildFlashcards() {
+  var html = '';
+  CARDS.forEach(function(c, i) {
+    html += '<div class="flip-card" id="fc-' + i + '" onclick="flipCard(this)">';
+    html += '<div class="flip-card-inner">';
+    html += '<div class="flip-card-front">';
+    html += '<div class="card-en">' + c.en + '</div>';
+    html += '<div class="card-hint">🇬🇧 Перекладай українською</div>';
+    html += '</div>';
+    html += '<div class="flip-card-back">';
+    html += '<div class="card-ua">' + c.ua + '</div>';
+    html += '</div>';
+    html += '</div></div>';
+  });
+  document.getElementById('cards-grid').innerHTML = html;
+}
+
+function flipCard(el) {
+  el.classList.toggle('flipped');
+}
+
+function flipAll() {
+  allFlipped = !allFlipped;
+  document.querySelectorAll('.flip-card').forEach(function(c) {
+    if (allFlipped) c.classList.add('flipped');
+    else c.classList.remove('flipped');
+  });
+  var btn = document.getElementById('flip-all-btn');
+  btn.textContent = allFlipped ? '🔄 Показати лицьову сторону' : '🔄 Перевернути всі';
+}
+
+// ===== SPEAKING =====
+
+function buildSpeaking() {
+  SPEAKING.forEach(function(dlg, i) {
+    var el = document.getElementById('spslide' + i);
+    if (!el) return;
+    var html = '<div class="sp-dialog-title">' + dlg.title + '</div>';
+    if (dlg.type === 'interview' && dlg.note) {
+      html += '<div class="sp-interview-note">' + dlg.note + '</div>';
+    }
+    dlg.lines.forEach(function(line) {
+      html += '<div class="sp-line">';
+      html += '<div class="sp-role">' + line.role + ':</div>';
+      if (line.blank) {
+        html += '<div class="sp-text"><span class="sp-blank">відповідає про себе...</span></div>';
+      } else {
+        html += '<div class="sp-text">' + line.text + '</div>';
+      }
+      html += '</div>';
+    });
+    el.innerHTML = html;
+  });
+}
+
+// ===== CAROUSEL =====
+
+function carNav(id, dir) {
+  carState[id] = Math.max(0, Math.min(3, carState[id] + dir));
+  var idx = carState[id];
+  var prefix = id === 'r' ? 'rslide' : 'spslide';
+  document.querySelectorAll('[id^="' + prefix + '"]').forEach(function(s, i) {
+    s.classList.toggle('active', i === idx);
+  });
+  document.getElementById(id + 'prev').disabled = idx === 0;
+  document.getElementById(id + 'next').disabled = idx === 3;
+  document.getElementById(id + 'counter').textContent = (idx + 1) + ' / 4';
+  if (id === 'r' && idx === 3) markDone(7);
+  if (id === 'sp' && idx === 3) markDone(9);
+}
+
+// ===== RESULTS =====
+
+function updateFab() {
+  var earned = 0, attempted = 0;
+  ['c0','c1','c2','c3'].forEach(function(k) {
+    if (quizScores[k]) {
+      earned += quizScores[k].got;
+      attempted += quizScores[k].total;
+    }
+  });
+  ['p0','p1','p2','p3'].forEach(function(k) {
+    if (puzzleScores[k]) {
+      earned += puzzleScores[k].got;
+      attempted += puzzleScores[k].total;
+    }
+  });
+  document.getElementById('fab').textContent = '📊 Результати ' + earned + '/' + attempted;
+}
+
+function openResults() {
+  var earned = 0, total = 0;
+  var rows = '';
+
+  ['c0','c1','c2','c3'].forEach(function(k, i) {
+    var score = quizScores[k];
+    var cell = score ? score.got + '/' + score.total : '—';
+    if (score) { earned += score.got; total += score.total; }
+    rows += '<tr><td>🎧 Quiz ' + (i + 1) + '</td><td>' + cell + '</td></tr>';
+  });
+
+  ['p0','p1','p2','p3'].forEach(function(k, i) {
+    var score = puzzleScores[k];
+    var cell = score ? score.got + '/' + score.total : '—';
+    if (score) { earned += score.got; total += score.total; }
+    rows += '<tr><td>🧩 Пазл ' + (i + 1) + '</td><td>' + cell + '</td></tr>';
+  });
+
+  var pct = total > 0 ? Math.round(earned / total * 100) : 0;
+  var medal = pct >= 90 ? '🏆' : pct >= 70 ? '🌟' : pct >= 50 ? '👍' : '💪';
+
+  var report = 'A1-16 Prepositions\n';
+  report += '=================\n';
+  ['c0','c1','c2','c3'].forEach(function(k, i) {
+    var s = quizScores[k];
+    report += 'Quiz ' + (i + 1) + ': ' + (s ? s.got + '/' + s.total : 'не виконано') + '\n';
+  });
+  ['p0','p1','p2','p3'].forEach(function(k, i) {
+    var s = puzzleScores[k];
+    report += 'Puzzle ' + (i + 1) + ': ' + (s ? s.got + '/' + s.total : 'не виконано') + '\n';
+  });
+  report += '-----------------\n';
+  report += 'Загальний результат: ' + earned + '/' + total + ' (' + pct + '%) ' + (total > 0 ? medal : '');
+
+  document.getElementById('results-content').innerHTML =
+    '<table class="results-table"><thead><tr><th>Вправа</th><th>Результат</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+    (total > 0
+      ? '<div class="medal-row">' + medal + '</div><div class="score-pct">' + pct + '%</div>'
+      : '<div style="text-align:center;color:var(--muted);margin-bottom:16px;">Виконуй вправи, щоб побачити результат!</div>') +
+    '<p style="font-size:13px;color:var(--muted);margin-bottom:8px;">Скопіюй і надішли звіт вчителю:</p>' +
+    '<textarea class="report-area" id="report-text" readonly>' + report + '</textarea>' +
+    '<button class="modal-btn copy-btn" onclick="copyReport()">📋 Скопіювати звіт</button>';
+
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+function closeResults() {
+  document.getElementById('modal-overlay').classList.remove('open');
+}
+
+document.getElementById('modal-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeResults();
+});
+
+function copyReport() {
+  var ta = document.getElementById('report-text');
+  ta.select();
+  document.execCommand('copy');
+  var btn = document.querySelector('.copy-btn');
+  btn.textContent = '✅ Скопійовано!';
+  setTimeout(function() { btn.textContent = '📋 Скопіювати звіт'; }, 2000);
+}
+
+// ===== INIT =====
+
+window.addEventListener('DOMContentLoaded', function() {
+  buildVocab();
+  CONVS.forEach(function(conv, i) { buildQuiz(i); });
+  buildPuzzles();
+  buildReading();
+  buildFlashcards();
+  buildSpeaking();
+  showStep(0);
+});
+</script>
+</body>
+</html>
